@@ -1,0 +1,31 @@
+﻿{
+  "SMS": {
+    "PhoneVerification": [
+      "Bienvenido a MyFoodApp! Por favor haz click en el siguiente enlace para verificar tu número de teléfono: @Model.Url"
+    ]
+  },
+  "Whatsapp": {
+    "DeliveryRequest": [
+      "*NUEVO PEDIDO de MyFoodApp!*",
+      "---------------------------------------",
+      "*ORIGEN*",
+      "@Model.BranchName",
+      "@Model.BranchAddress",
+      "@Model.BranchAddressUrl",
+      "@Model.BranchWhatsappUrl",
+      "*PEDIDO (@Model.PaymentTypeName)*",
+      "Pedido # @Model.EventId",
+      "@Model.AppUserFullName",
+      "@(Model.PaymentTypeId == 1 ? \"Bs. Model.OrderAmount: \" : \"\")",
+      "*DESTINO*",
+      "@Model.LocationAddress",
+      "@(Model.LocationAddressNotes != null ? Model.LocationAddressNotes : \"\")",
+      "@Model.LocationAddressUrl",
+      "@Model.AppUserWhatsappUrl",
+      "DISTANCIA: @Model.DeliveryDistance Km",
+      "@(Model.EventTypeId == 2 ? \"TARIFA ENVIO: Bs. \" + Model.DeliveryCost : \"\")",
+      "@(Model.PaymentTypeId == 1 ? \"COSTO TOTAL: Bs. \" + Model.TotalAmount : \"\")",
+      "-----------------------------------------"
+    ]
+  }
+}

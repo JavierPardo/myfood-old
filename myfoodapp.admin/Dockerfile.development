@@ -1,0 +1,24 @@
+# Multi-stage
+# 1) Node image for building frontend assets
+# 2) nginx stage to serve frontend assets
+
+## STEP 1
+# pull official base image
+FROM node:12.19.0 as builder
+
+# set working directory
+RUN mkdir /app
+WORKDIR /app
+
+# install app dependencies
+COPY package.json /app
+RUN npm install 
+
+# add app
+COPY . /app
+
+RUN npm run build
+
+## STEP 2
+FROM nginx:stable-alpine
+COPY --from=builder /app/build /usr/share/nginx/html

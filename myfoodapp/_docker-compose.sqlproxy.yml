@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  myfoodapp.api:
+    image: gcr.io/aqueous-aileron-281300/myfoodapp:latest
+    container_name: myfoodapp-api
+    ports:
+        - 51803:80
+    build:
+      context: .
+      dockerfile: MyFoodApp.API/Dockerfile
+  cloud-sql-proxy:
+    image: gcr.io/cloudsql-docker/gce-proxy:1.17
+    container_name: cloudsql-proxy
+    command: /cloud_sql_proxy --dir=/cloudsql -instances=aqueous-aileron-281300:us-east1:myfoodapp-pg=tcp:0.0.0.0:5432 -credential_file=/secrets/cloudsql/credentials.json
+    volumes:
+        - ./pg-credentials.json:/secrets/cloudsql/credentials.json
+    ports:
+        - 5432:5432

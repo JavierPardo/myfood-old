@@ -1,0 +1,4 @@
+### 401
+GET {{host}}/api/group
+Accept: application/json
+Authorization: Bearer {{token}}

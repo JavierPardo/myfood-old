@@ -1,0 +1,21 @@
+POST {{host}}/api/location
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "coordinates":"22.1402326,-100.9720731",
+  "address":"Centro 4",
+  "notes":"HOME",
+  "countryId":26,
+  "cityId":1
+}
+
+###
+GET {{host}}/api/location/getbyuserid
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{hosts}}/api/location/calculatedeliverycost/1/{x1}/{y1}/{x2}/{y2}
+

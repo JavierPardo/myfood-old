@@ -1,0 +1,8 @@
+﻿runtime: aspnetcore
+service: api
+env: flex
+endpoints_api_service:
+    name: api-dot-aqueous-aileron-281300.appspot.com
+    rollout_strategy: managed
+beta_settings:
+  cloud_sql_instances: aqueous-aileron-281300:us-east1:myfoodapp-pg=tcp:5432

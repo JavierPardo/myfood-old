@@ -1,0 +1,137 @@
+export const MODULES_ROUTES = {
+  admin: '/Admin',
+};
+
+export const ROUTES = {
+  public: {
+    login: '/login',
+    payment: '/Payment/:orderId',
+    notFound: '/404',
+    forbidden: '/403',
+    resetPassword: '/resetpassword',
+    recoverPassword: '/recoverpassword',
+  },
+  private: {
+    default: MODULES_ROUTES.admin,
+  },
+  dashboard: {
+    operation: `${MODULES_ROUTES.admin}/dasboard-operation`,
+    admin: `${MODULES_ROUTES.admin}/dashboard-admin`,
+  },
+  category: {
+    list: `${MODULES_ROUTES.admin}/category`,
+    new: `${MODULES_ROUTES.admin}/category/new`,
+    edit: `${MODULES_ROUTES.admin}/category/edit/:id`,
+  },
+  item: {
+    list: `${MODULES_ROUTES.admin}/item`,
+    new: `${MODULES_ROUTES.admin}/item/new`,
+    edit: `${MODULES_ROUTES.admin}/item/:id`,
+  },
+  side: {
+    list: `${MODULES_ROUTES.admin}/side`,
+    new: `${MODULES_ROUTES.admin}/side/new`,
+    edit: `${MODULES_ROUTES.admin}/side/:id`,
+  },
+  underConstruction: `${MODULES_ROUTES.admin}/underConstruction`,
+  order: {
+    main: `${MODULES_ROUTES.admin}/order`,
+    list: `${MODULES_ROUTES.admin}/order`,
+    new: `${MODULES_ROUTES.admin}/order/new`,
+    edit: `${MODULES_ROUTES.admin}/order/edit/:orderId`,
+  },
+  client: {
+    main: `${MODULES_ROUTES.admin}/client`,
+    list: `${MODULES_ROUTES.admin}/client`,
+    new: `${MODULES_ROUTES.admin}/client/new`,
+    edit: `${MODULES_ROUTES.admin}/client/edit/:clientId`,
+    companyProfile: `${MODULES_ROUTES.admin}/Client/profile`,
+    datesManager: `${MODULES_ROUTES.admin}/Client/dates-manager`,
+    datesManagerEdit: `${MODULES_ROUTES.admin}/Client/dates-manager/edit/:exceptionDateId`,
+    datesManagerNew: `${MODULES_ROUTES.admin}/Client/dates-manager/new`,
+    preferences: `${MODULES_ROUTES.admin}/Client/preferences`,
+  },
+  branch: {
+    main: `${MODULES_ROUTES.admin}/branch`,
+    list: `${MODULES_ROUTES.admin}/branch`,
+    new: `${MODULES_ROUTES.admin}/branch/new`,
+    edit: `${MODULES_ROUTES.admin}/branch/edit/:branchId`,
+  },
+  users: {
+    main: `${MODULES_ROUTES.admin}/users`,
+    list: `${MODULES_ROUTES.admin}/users`,
+    new: `${MODULES_ROUTES.admin}/users/new`,
+    edit: `${MODULES_ROUTES.admin}/users/edit/:userId`,
+  },
+  menu: {
+    main: `${MODULES_ROUTES.admin}/menu`,
+    list: `${MODULES_ROUTES.admin}/menu`,
+    new: `${MODULES_ROUTES.admin}/menu/new`,
+    edit: `${MODULES_ROUTES.admin}/menu/edit/:menuId`,
+  },
+  provider: {
+    main: `${MODULES_ROUTES.admin}/provider`,
+    list: `${MODULES_ROUTES.admin}/provider`,
+    new: `${MODULES_ROUTES.admin}/provider/new`,
+    edit: `${MODULES_ROUTES.admin}/provider/edit/:providerId`,
+  },
+  deliveryCost: {
+    main: `${MODULES_ROUTES.admin}/deliveryCost`,
+    list: `${MODULES_ROUTES.admin}/deliveryCost`,
+    new: `${MODULES_ROUTES.admin}/deliveryCost/new`,
+    edit: `${MODULES_ROUTES.admin}/deliveryCost/edit/:deliveryCostId`,
+  },
+  reservation: {
+    main: `${MODULES_ROUTES.admin}/reservation`,
+    list: `${MODULES_ROUTES.admin}/reservation`,
+    new: `${MODULES_ROUTES.admin}/reservation/new`,
+    edit: `${MODULES_ROUTES.admin}/reservation/edit/:id`,
+    preview: `${MODULES_ROUTES.admin}/reservation/preview/:id`,
+  },
+  specialEvent: {
+    list: `${MODULES_ROUTES.admin}/specialEvent`,
+    new: `${MODULES_ROUTES.admin}/specialEvent/new`,
+    edit: `${MODULES_ROUTES.admin}/specialEvent/edit/:id`,
+    preview: `${MODULES_ROUTES.admin}/specialEvent/preview/:id`,
+  },
+  event: {
+    main: `${MODULES_ROUTES.admin}/event`,
+    newOrder: `${MODULES_ROUTES.admin}/order/new/:eventId`,
+    list: `${MODULES_ROUTES.admin}/event`,
+    new: `${MODULES_ROUTES.admin}/event/new`,
+    edit: `${MODULES_ROUTES.admin}/event/edit/:eventId`,
+  },
+  coupon: {
+    list: `${MODULES_ROUTES.admin}/coupon`,
+    create: `${MODULES_ROUTES.admin}/coupon/create`,
+    edit: `${MODULES_ROUTES.admin}/coupon/:id`,
+  },
+  report: {
+    ordersByDatesList: `${MODULES_ROUTES.admin}/report/ordersbydateslist`,
+    itemsByDatesReport: `${MODULES_ROUTES.admin}/report/itemsbydatesreport`,
+    rankingItemsReport: `${MODULES_ROUTES.admin}/report/rankingitemsreport`,
+    bookingsByDatesReport: `${MODULES_ROUTES.admin}/report/bookingsbydatesreport`,
+    eventsReport: `${MODULES_ROUTES.admin}/report/eventsreport`,
+    operativeTimesReport: `${MODULES_ROUTES.admin}/report/operativetimesreport`,
+    transactionsByDatesReport: `${MODULES_ROUTES.admin}/report/transactionsbydatesreport`,
+    logisticsConciliationReport: `${MODULES_ROUTES.admin}/report/logisticsconciliationreport`,
+    clientConciliationReport: `${MODULES_ROUTES.admin}/report/clientconciliationreport`,
+    activityByDemographReport: `${MODULES_ROUTES.admin}/report/activitybydemographreport`,
+  },
+  provider: `${MODULES_ROUTES.admin}/provider`,
+  createProvider: `${MODULES_ROUTES.admin}/provider/create`,
+  editProvider: `${MODULES_ROUTES.admin}/provider/:id`,
+  deliveryCost: `${MODULES_ROUTES.admin}/deliverycost`,
+  createDeliveryCost: `${MODULES_ROUTES.admin}/deliverycost/create`,
+  editDeliveryCost: `${MODULES_ROUTES.admin}/deliverycost/:id`,
+  option: `${MODULES_ROUTES.admin}/option`,
+  user: `${MODULES_ROUTES.admin}/users`,
+  createUser: `${MODULES_ROUTES.admin}/users/create`,
+  editUser: `${MODULES_ROUTES.admin}/users/:id`,
+  resetPassword: `/resetpassword`,
+  recoverPassword: `/recoverpassword`,
+  configuration: `${MODULES_ROUTES.admin}/Configuration`,
+};
+
+export const DATE_TIME_FORMAT = 'DD-MM-YYYY hh:mm a';
+export const DATE_FORMAT = 'DD-MM-YYYY';

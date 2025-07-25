@@ -1,0 +1,3 @@
+myfoodapp/.gitignore
+myfoodapp/MyFoodApp.API/googleStorageCredentials.json
+myfoodapp/MyFoodApp.API/googleLoggingCredentials.json

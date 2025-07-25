@@ -1,0 +1,162 @@
+{
+  "category": [
+    {
+      "name": "Carnes",
+      "food": [
+        {
+          "id"   : 1,
+          "name" : "Alitas picantes",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/ALITAS-PICANTE.jpeg?food=1000",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 2,
+          "name" : "Burritos",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/BURRITO.jpg?food=1001",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 3,
+          "name" : "Carne",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CARNE.jpg?food=1002",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 4,
+          "name" : "Chesseburger",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHESSEBURGUER.jpeg?food=1003",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 5,
+          "name" : "Churrasco",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO.jpg?food=1004",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 6,
+          "name" : "Churrasco",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO2.jpg?food=1005",
+          "price": "55 BS."
+        }
+      ]
+    },
+    {
+      "name": "Almuerzo",
+      "food": [
+        {
+          "id"   : 7,
+          "name" : "Comida",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/COMIDA.jpeg?food=1006",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 8,
+          "name" : "Desayuno",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/DESAYUNO.jpg?food=1007",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 9,
+          "name" : "Ensalada",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/ENSALADA.jpg?food=1008",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 10,
+          "name" : "Filete",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/FILETE.jpeg?food=1009",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 11,
+          "name" : "Fruta",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/FRUTA.jpg?food=1010",
+          "price": "55 BS."
+        },
+        {}
+      ]
+    },
+    {
+      "name": "Postres",
+      "food": [
+
+        {
+          "id"   : 12,
+          "name" : "Hamburguesa con huevo",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HAMBURGUESA-HUEVO.jpg?food=1011",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 13,
+          "name" : "Hamburguesa con tosino",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HAMBURGUESA-TOSINO.jpg?food=1012",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 14,
+          "name" : "Hamburguesa",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HAMBURGUESA.jpg?food=1013",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 5,
+          "name" : "Hamburguesa",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HAMBURGUSA.jpg?food=1014",
+          "price": "55 BS."
+        },
+        {},
+        {}
+      ]
+    },
+    {
+      "name": "Helados",
+      "food": [
+        {
+          "id"   : 16,
+          "name" : "Helado frutal",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HELADO-FRUTAL.jpg?food=1015",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 17,
+          "name" : "Helado oreo",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HELADO-OREO.jpg?food=1016",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 18,
+          "name" : "Helado",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HELADO.jpg?food=1017",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 19,
+          "name" : "Helado cremosos",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HELADOS.jpg?food=1018",
+          "price": "55 BS."
+        },
+        {},
+        {}
+      ]
+    },
+    {
+      "name": "Comida marina",
+      "food": [
+        {
+          "id"   : 21,
+          "name" : "Langosta",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/LANGOSTA.jpg?food=1020",
+          "price": "55 BS."
+        },
+        {
+          "id"   : 22,
+          "name" : "Mariscos",
+          "image": "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/MARISCOS.jpg?food=1021",
+          "price": "55 BS."
+        },
+        {}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+﻿using MyFoodApp.API.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace MyFoodApp.API.Interfaces
+{
+    public interface IEventTypeService
+    {
+        void Add(EventType eventType);
+        void Update(EventType eventType);
+        EventType Get(int id);
+        ICollection<EventType> GetAll();
+        void Delete(int id);
+    }
+}

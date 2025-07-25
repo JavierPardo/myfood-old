@@ -1,0 +1,113 @@
+### LOGIN USER ADMIN
+POST {{host}}/api/appusers/login
+Content-Type: application/json
+
+{
+  "email": "contacto@myfoodapp.com.bo",
+  "password": "P@ssw0rd1!"
+}
+
+### REGISTER USER ADMIN
+POST {{host}}/api/appusers/register
+Content-Type: application/json
+
+{
+  "email": "contacto@myfoodapp.com.bo",
+  "firstName": "juan",
+  "lastName": "juan3",
+  "password": "P@ssw0rd1!",
+  "phoneNumber": "333444556"
+}
+
+> {% client.global.set("token", response.body); %}
+
+
+### LOGIN USER JUAN
+POST {{host}}/api/appusers/login
+Content-Type: application/json
+
+{
+  "email": "juan2@peres.com",
+  "password": "Qwe.123."
+}
+
+> {% client.global.set("token", response.body); %}
+
+### LOGIN FB
+POST {{host}}/api/socialaccount/facebook-login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "",
+  "firstName": "jhon",
+  "lastName": "perez",
+  "token": "EAAMZC3tlemccBAG8BCdW5zvmfcsaHmhZAA5sa4rlYqgYXDbkTlPXPAVE9chob2IX0AT92d7pS7dCKY3xlLUZAUKrnVYT5ZBxUKBFPSZAUVOSdLZBCNp8xtRXaBkdQXtqepRIZAZBSj95sSZAZC3j3rJ4vKKdEKqbWegmjgstP4jpzsco4pWHE7Q3ZAyeekWMFCwmdCPZBeR7rCcO5SrNhdXkZA45wFv50CxaUp1kZD"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### GET USER PROFILE
+GET {{host}}/api/appusers/mobileuserprofile
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### TODO CHECK
+GET {{host}}/api/orderstatushistory/2
+Content-Type: application/json
+
+{
+  "token": {{token}}
+}
+
+### checked
+PUT {{host}}/api/appusers
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "firstName": "juan",
+  "lastName": "perez",
+  "phoneNumber": "70333333",
+  "email": "juan2@peres.com",
+  "userName": "juan2@peres.com",
+  "preferences": "asdqwer1234dfdkdlgdkflgkdflgkd"
+}
+
+### FORBIDDEN
+PUT {{host}}/api/appusers/changepassword
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "email": "juan2@peres.com",
+  "password": "Qwe.123.456.",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqdWFuMkBwZXJlcy5jb20iLCJqdGkiOiI3MWVjMjc0Yi0xYTM0LTQ1ZWYtODIwOS01MGFmZmMzNjFiMGYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNjAyNjU3NjI0LCJpc3MiOiJodHRwOi8vYWRtaW4ubXlmb29kYXBwLmNvbS5ibyIsImF1ZCI6Imh0dHA6Ly9hZG1pbi5teWZvb2RhcHAuY29tLmJvIn0.b38xsMBl7TUIEykLVITB1EDXTmralM5Ytzxl5Q0l6tI"
+}
+
+
+###
+POST {{host}}/api/appusers/recoverpassword
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "email": "juan2@peres.com"
+}

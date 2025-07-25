@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-10-22T16:04:38Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  name: dev-mfa-cluster-deploy
+  namespace: default
+  resourceVersion: "4741106"
+  selfLink: /api/v1/namespaces/default/services/dev-mfa-cluster-deploy
+  uid: 1e384bba-b4e5-4bef-b011-ad5199034a3b
+spec:
+  clusterIP: 10.20.5.130
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: http
+    nodePort: 30394
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  - name: https
+    nodePort: 30395
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: dev-mfa-api
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.243.158.53

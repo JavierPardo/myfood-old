@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFoodApp.API", "MyFoodApp.API\MyFoodApp.API.csproj", "{06D4471D-1E5F-40DF-8F62-74AED9C3311B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFoodApp.Resources", "MyFoodApp.Resources\MyFoodApp.Resources.csproj", "{3BCD9A12-A013-4C75-B3F5-711D79A85C27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4CA82AD9-1FB6-4603-8267-03F7F2DED62F}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		_docker-compose.apionly.yml = _docker-compose.apionly.yml
+		_docker-compose.override.yml = _docker-compose.override.yml
+		_docker-compose.sqlproxy.override.yml = _docker-compose.sqlproxy.override.yml
+		_docker-compose.sqlproxy.yml = _docker-compose.sqlproxy.yml
+		Api.Development.Dockerfile = Api.Development.Dockerfile
+		Api.Dockerfile = Api.Dockerfile
+		dev-cloudsql-k8s-deploy.yaml = dev-cloudsql-k8s-deploy.yaml
+		dev-mfaapi-k8s-deploy.yaml = dev-mfaapi-k8s-deploy.yaml
+		dev-mfalb-k8s-deploy.yaml = dev-mfalb-k8s-deploy.yaml
+		docker-compose.nginx.yml = docker-compose.nginx.yml
+		DONOTUSE_dev-cloudsql-k8s-deploy.yaml = DONOTUSE_dev-cloudsql-k8s-deploy.yaml
+		my-secret-volume.yaml = my-secret-volume.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06D4471D-1E5F-40DF-8F62-74AED9C3311B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D4471D-1E5F-40DF-8F62-74AED9C3311B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D4471D-1E5F-40DF-8F62-74AED9C3311B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D4471D-1E5F-40DF-8F62-74AED9C3311B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BCD9A12-A013-4C75-B3F5-711D79A85C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BCD9A12-A013-4C75-B3F5-711D79A85C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BCD9A12-A013-4C75-B3F5-711D79A85C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BCD9A12-A013-4C75-B3F5-711D79A85C27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81776060-EE2B-4890-AD41-A79611828509}
+	EndGlobalSection
+EndGlobal

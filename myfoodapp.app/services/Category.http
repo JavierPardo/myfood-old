@@ -1,0 +1,6 @@
+### CHECKED
+GET {{host}}/api/category
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###

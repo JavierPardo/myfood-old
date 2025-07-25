@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sql-proxy-deployment
+  labels:
+    app: cloud-sql-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-sql-proxy
+  template:
+    metadata:
+      labels:
+        app: cloud-sql-proxy
+    spec:
+      containers:
+      - name: cloud-sql-proxy
+        image: gcr.io/cloudsql-docker/gce-proxy:1.17
+        command: 
+           - "/cloud_sql_proxy"
+           - "-dir=/cloudsql"
+           - "-credential_file=/secrets/cloudsql/pg-credentials.json"
+           - "-instances=aqueous-aileron-281300:us-east1:myfoodapp-pg=tcp:0.0.0.0:5432"                   
+        volumeMounts:
+          - name: my-secrets-volume
+            mountPath: /secrets/cloudsql
+            readOnly: true          
+      volumes:
+      - name: my-secrets-volume
+        secret:
+          secretName: cloudsql-instance-credentials
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sql-proxy-service
+spec:
+  selector:
+    app: cloud-sql-proxy
+  ports:
+    - protocol: TCP 
+      port: 5432
+      targetPort: 5432

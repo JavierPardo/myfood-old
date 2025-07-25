@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  myfoodapp.api:
+    image: gcr.io/aqueous-aileron-281300/myfoodapp:latest
+    container_name: myfoodapp-api
+    ports:
+        - 51803:80
+    build:
+      context: .
+      dockerfile: MyFoodApp.API/Dockerfile

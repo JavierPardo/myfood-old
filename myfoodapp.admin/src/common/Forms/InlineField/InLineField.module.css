@@ -1,0 +1,9 @@
+.inLineFormLabel {
+  text-align: right;
+}
+
+@media (max-width: 992px) {
+  .inLineFormLabel {
+    text-align: left;
+  }
+}

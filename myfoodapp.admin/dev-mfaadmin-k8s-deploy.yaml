@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-mfa-admin-deploy
+spec:
+  selector:
+    matchLabels:
+      app: dev-mfa-admin
+  template:
+    metadata:
+      labels:
+        app: dev-mfa-admin
+    spec:
+      containers:      
+      - name: dev-mfa-admin
+        image: gcr.io/aqueous-aileron-281300/dev-mfa-admin:latest
+        imagePullPolicy: Always
+        #env:
+        #- name: REACT_APP_API_URL
+        #  value: "https://34.74.137.151"
+        ports:
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https        

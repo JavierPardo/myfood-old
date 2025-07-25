@@ -1,0 +1,7572 @@
+swagger: '2.0'
+info:
+  title: MyFoodApp.API
+  version: '1.0'
+
+host: api-dot-aqueous-aileron-281300.appspot.com
+x-google-endpoints: [
+  {
+  "name": "api-dot-aqueous-aileron-281300.appspot.com",
+  "allowCors": true
+  }
+]
+paths:
+  '/api/adimage/getimagebycollection/{id}':
+    get:
+      tags:
+        - AdImage
+      operationId: GetAdImagesByCollection
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AdImage'
+  '/api/adimage/{id}':
+    get:
+      tags:
+        - AdImage
+      operationId: GetAdImageById
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/AdImage'
+    put:
+      tags:
+        - AdImage
+      operationId: UpdateAdImage
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/AdImage'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - AdImage
+      operationId: DeleteAdImage
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/adimage:
+    post:
+      tags:
+        - AdImage
+      operationId: AddAdImage
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/AdImage'
+      responses:
+        '200':
+          description: Success
+  /api/appusers/login:
+    post:
+      tags:
+        - AppUsers
+      operationId: Login
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/AuthenticateModel'
+      responses:
+        '200':
+          description: Success
+  /api/appusers/order:
+    get:
+      tags:
+        - AppUsers
+      operationId: GetUsersByOrderId
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: Success
+  /api/appusers/register:
+    post:
+      tags:
+        - AppUsers
+      operationId: RegisterUser
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/RegisterModel'
+      responses:
+        '200':
+          description: Success
+  /api/appusers/currentuser:
+    get:
+      tags:
+        - AppUsers
+      operationId: GetCurrentUser
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/WebUserDTO'
+  /api/appusers/mobileuserprofile:
+    get:
+      tags:
+        - AppUsers
+      operationId: GetMobileUserProfile
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/AppUserModel'
+  /api/appusers:
+    get:
+      tags:
+        - AppUsers
+      operationId: GetUsersAsync
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - AppUsers
+      operationId: UpdateMobileUser
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/UpdateModel'
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - AppUsers
+      operationId: CreateUser
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/RegisterModel'
+      responses:
+        '200':
+          description: Success
+  '/api/appusers/getadminsbybranchid/{branchId}':
+    get:
+      tags:
+        - AppUsers
+      operationId: GetAdminUsersByBranchId
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/appusers/{id}':
+    get:
+      tags:
+        - AppUsers
+      operationId: GetUserByUserId
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - AppUsers
+      operationId: UpdateUser
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/UpdateModel'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - AppUsers
+      operationId: DeleteUser
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  /api/appusers/recoverpassword:
+    post:
+      tags:
+        - AppUsers
+      operationId: RecoverPassword
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ResetPasswordDTO'
+      responses:
+        '200':
+          description: Success
+  /api/appusers/changepassword:
+    post:
+      tags:
+        - AppUsers
+      operationId: ChangePassword
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ResetPasswordDTO'
+      responses:
+        '200':
+          description: Success
+  /api/branch:
+    get:
+      tags:
+        - Branch
+      operationId: GetBranches
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Branch'
+    post:
+      tags:
+        - Branch
+      operationId: AddBranch
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Branch'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Branch
+      operationId: UpdateBranchSuperAdmin
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Branch'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Branch
+      operationId: DeleteBranch
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Branch'
+      responses:
+        '200':
+          description: Success
+  '/api/branch/client/{encryptedClientId}':
+    get:
+      tags:
+        - Branch
+      operationId: GetBranchesByEncryptedClientId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: encryptedClientId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Branch'
+  '/api/branch/getbyclientid/{clientId}':
+    get:
+      tags:
+        - Branch
+      operationId: GetBranchesByClientId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Branch'
+  '/api/branch/getbygroupid/{groupId}':
+    get:
+      tags:
+        - Branch
+      operationId: GetBranchesByGroupId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: groupId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Branch'
+  '/api/branch/getbyeventtypeid/{cryptEventTypeId}':
+    get:
+      tags:
+        - Branch
+      operationId: GetBranchesByEventTypeId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptEventTypeId
+          required: true
+          type: string
+        - in: query
+          name: searchCriteria
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Branch'
+  /api/branch/getbytags:
+    get:
+      tags:
+        - Branch
+      operationId: GetBranchByNameOrTags
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: searchCriteria
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Branch'
+  '/api/branch/{cryptId}':
+    get:
+      tags:
+        - Branch
+      operationId: GetByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Branch'
+  /api/branch/information:
+    get:
+      tags:
+        - Branch
+      operationId: GetInformation
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Branch
+      operationId: SaveInformation
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchDTO'
+      responses:
+        '200':
+          description: Success
+  /api/branch/servicetag:
+    get:
+      tags:
+        - Branch
+      operationId: GetBranchesByServiceType
+      parameters:
+        - in: query
+          name: tags
+          type: string
+      responses:
+        '200':
+          description: Success
+  /api/branch/current:
+    get:
+      tags:
+        - Branch
+      operationId: GetCurrent
+      responses:
+        '200':
+          description: Success
+  /api/branch/search:
+    get:
+      tags:
+        - Branch
+      operationId: GetBranchesByEventTypesAndCriteria
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: criteria
+          type: string
+          default: ''
+        - in: query
+          name: eventtypes
+          type: string
+          default: ''
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+  /api/branch/updateisactivebranch:
+    patch:
+      tags:
+        - Branch
+      operationId: UpdateIsActiveBranch
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Branch'
+      responses:
+        '200':
+          description: Success
+  '/api/branchexceptiondate/getbybranchid/{branchId}':
+    get:
+      tags:
+        - BranchExceptionDate
+      operationId: GetBranchExceptionDate
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchExceptionDate'
+  '/api/branchexceptiondate/{id}':
+    get:
+      tags:
+        - BranchExceptionDate
+      operationId: GetByBranchExceptionDateId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BranchExceptionDate'
+    delete:
+      tags:
+        - BranchExceptionDate
+      operationId: DeleteBranchExceptionDate
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/branchexceptiondate:
+    get:
+      tags:
+        - BranchExceptionDate
+      operationId: GetAll
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchExceptionDate'
+    post:
+      tags:
+        - BranchExceptionDate
+      operationId: AddBranchExceptionDate
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchExceptionDate'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - BranchExceptionDate
+      operationId: UpdateBranchExceptionDate
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchExceptionDate'
+      responses:
+        '200':
+          description: Success
+  /api/branchexceptiondate/updateisclosed:
+    patch:
+      tags:
+        - BranchExceptionDate
+      operationId: UpdateBranchExceptionDateIsClosed
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchExceptionDate'
+      responses:
+        '200':
+          description: Success
+  /api/branchpaymenttype:
+    get:
+      tags:
+        - BranchPaymentType
+      operationId: GetBranchPaymentTypes
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchesPaymentTypes'
+    post:
+      tags:
+        - BranchPaymentType
+      operationId: AddBranchPaymentType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchesPaymentTypes'
+      responses:
+        '200':
+          description: Success
+  '/api/branchpaymenttype/{id}':
+    get:
+      tags:
+        - BranchPaymentType
+      operationId: GetByBranchPaymentTypeId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BranchesPaymentTypes'
+    put:
+      tags:
+        - BranchPaymentType
+      operationId: UpdateBranchPaymentType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchesPaymentTypes'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - BranchPaymentType
+      operationId: DeleteBranchPaymentType
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/branchpreference/{id}':
+    get:
+      tags:
+        - BranchPreference
+      operationId: GetBranchPreferencesByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchPreferences'
+    delete:
+      tags:
+        - BranchPreference
+      operationId: DeleteBranchPreferences
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/branchpreference:
+    get:
+      tags:
+        - BranchPreference
+      operationId: GetBranchPreferences
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchPreferences'
+    post:
+      tags:
+        - BranchPreference
+      operationId: AddBranchPreferences
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchPreferences'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - BranchPreference
+      operationId: UpdateBranchPreferences
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchPreferences'
+      responses:
+        '200':
+          description: Success
+  '/api/branchpreference/{id}/{name}':
+    get:
+      tags:
+        - BranchPreference
+      operationId: GetBranchPreferencesByBranchIdAndName
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+        - in: path
+          name: name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BranchPreferences'
+  '/api/branchschedule/getbybranchid/{branchId}':
+    get:
+      tags:
+        - BranchSchedule
+      operationId: GetBranchSchedule
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchSchedule'
+  '/api/branchschedule/getbybranchanddate/{branchId}/{strDate}':
+    get:
+      tags:
+        - BranchSchedule
+      operationId: GetBranchScheduleByDate
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+        - in: path
+          name: strDate
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchDateScheduleDto'
+  '/api/branchschedule/{id}':
+    get:
+      tags:
+        - BranchSchedule
+      operationId: GetByBranchScheduleId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BranchSchedule'
+    put:
+      tags:
+        - BranchSchedule
+      operationId: UpdateBranchSchedule
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchSchedule'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - BranchSchedule
+      operationId: DeleteBranchSchedule
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/branchschedule:
+    post:
+      tags:
+        - BranchSchedule
+      operationId: AddBranchSchedule
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/BranchSchedule'
+      responses:
+        '200':
+          description: Success
+  '/api/category/getbymenuid/{menuId}':
+    get:
+      tags:
+        - Category
+      operationId: GetCategoriesByMenuId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: menuId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Category'
+  '/api/category/{id}':
+    get:
+      tags:
+        - Category
+      operationId: GetByCategoryId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Category'
+    put:
+      tags:
+        - Category
+      operationId: UpdateCategory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Category'
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - Category
+      operationId: Patch
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/CategoryDTO'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Category
+      operationId: DeleteCategory
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  /api/category:
+    get:
+      tags:
+        - Category
+      operationId: GetCategories
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Category'
+    post:
+      tags:
+        - Category
+      operationId: AddCategory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/CategoryDTO'
+      responses:
+        '200':
+          description: Success
+  /api/category/rearrange:
+    patch:
+      tags:
+        - Category
+      operationId: Rearrange
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/city:
+    get:
+      tags:
+        - City
+      operationId: GetCities
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/City'
+    post:
+      tags:
+        - City
+      operationId: AddCity
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/City'
+      responses:
+        '200':
+          description: Success
+  '/api/city/{id}':
+    get:
+      tags:
+        - City
+      operationId: GetByCityId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/City'
+    put:
+      tags:
+        - City
+      operationId: UpdateCity
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/City'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - City
+      operationId: DeleteCity
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/client:
+    get:
+      tags:
+        - Client
+      operationId: GetClients
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Client'
+    post:
+      tags:
+        - Client
+      operationId: AddClient
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Client'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Client
+      operationId: UpdateClient
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Client'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Client
+      operationId: DeleteClient
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Client'
+      responses:
+        '200':
+          description: Success
+  '/api/client/{cryptClientId}':
+    get:
+      tags:
+        - Client
+      operationId: GetByClientId
+      parameters:
+        - in: path
+          name: cryptClientId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+  /api/client/updateisactive:
+    patch:
+      tags:
+        - Client
+      operationId: UpdateIsActiveClient
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Client'
+      responses:
+        '200':
+          description: Success
+  /api/clientsadminusers:
+    get:
+      tags:
+        - ClientsAdminUsers
+      operationId: GetClientAdmins
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClientsAdminUsers'
+    post:
+      tags:
+        - ClientsAdminUsers
+      operationId: Post
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ClientsAdminUsers'
+      responses:
+        '200':
+          description: Success
+  '/api/clientsadminusers/{id}':
+    get:
+      tags:
+        - ClientsAdminUsers
+      operationId: Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ClientsAdminUsers'
+    put:
+      tags:
+        - ClientsAdminUsers
+      operationId: Put
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ClientsAdminUsers'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - ClientsAdminUsers
+      operationId: Delete
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/country:
+    get:
+      tags:
+        - Country
+      operationId: GetCountries
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Country'
+    post:
+      tags:
+        - Country
+      operationId: AddCountry
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Country'
+      responses:
+        '200':
+          description: Success
+  '/api/country/{id}':
+    get:
+      tags:
+        - Country
+      operationId: GetByCountryId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Country'
+    put:
+      tags:
+        - Country
+      operationId: UpdateCountry
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Country'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Country
+      operationId: DeleteCountry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/coupon/metadata:
+    get:
+      tags:
+        - Coupon
+      operationId: GetMetadata
+      responses:
+        '200':
+          description: Success
+  /api/coupon:
+    get:
+      tags:
+        - Coupon
+      operationId: GetCoupons
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Coupon'
+    post:
+      tags:
+        - Coupon
+      operationId: AddCoupon
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Coupon'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Coupon
+      operationId: UpdateCoupon
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Coupon'
+      responses:
+        '200':
+          description: Success
+  '/api/coupon/{cryptId}':
+    get:
+      tags:
+        - Coupon
+      operationId: GetByCouponId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Coupon'
+    delete:
+      tags:
+        - Coupon
+      operationId: DeleteCoupon
+      parameters:
+        - in: path
+          name: cryptId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+  /api/coupon/code:
+    get:
+      tags:
+        - Coupon
+      operationId: GetByCode
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: code
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Coupon'
+  '/api/coupon/event/{eventId}':
+    get:
+      tags:
+        - Coupon
+      operationId: GetCouponByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Coupon'
+  /api/coupon/toggleactive:
+    patch:
+      tags:
+        - Coupon
+      operationId: PatchCoupon
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Coupon'
+      responses:
+        '200':
+          description: Success
+  /api/event:
+    get:
+      tags:
+        - Event
+      operationId: GetEventsByBranchId
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Event
+      operationId: AddEvent
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Event'
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: string
+    put:
+      tags:
+        - Event
+      operationId: UpdateEvent
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Event'
+      responses:
+        '200':
+          description: Success
+          schema:
+            format: int64
+            type: integer
+  '/api/event/{id}':
+    get:
+      tags:
+        - Event
+      operationId: GetByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Event'
+  /api/event/user:
+    get:
+      tags:
+        - Event
+      operationId: GetEventsByCurrentUserId
+      responses:
+        '200':
+          description: Success
+  '/api/event/{eventId}/{cryptedStatusId}':
+    patch:
+      tags:
+        - Event
+      operationId: UpdateEncryptedEventStatus
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: cryptedStatusId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Event'
+  /api/event/createdebt:
+    post:
+      tags:
+        - Event
+      operationId: CreateDebtAsync
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/DebtDTO'
+      responses:
+        '200':
+          description: Success
+  /api/event/geteventsbyuser:
+    get:
+      tags:
+        - Event
+      operationId: GetEventsByUserId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+  /api/eventstatus:
+    get:
+      tags:
+        - EventStatus
+      operationId: GetEventStatuses
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/EventStatus'
+    post:
+      tags:
+        - EventStatus
+      operationId: AddEventStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/EventStatus'
+      responses:
+        '200':
+          description: Success
+  '/api/eventstatus/{id}':
+    get:
+      tags:
+        - EventStatus
+      operationId: GetByEventStatusId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/EventStatus'
+    put:
+      tags:
+        - EventStatus
+      operationId: UpdateEventStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/EventStatus'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - EventStatus
+      operationId: DeleteEventStatus
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/eventstatushistory/{id}':
+    get:
+      tags:
+        - EventStatusHistory
+      operationId: GetStatusHistoryByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/EventStatusHistory'
+  /api/eventstatushistory:
+    post:
+      tags:
+        - EventStatusHistory
+      operationId: PostEventStatusHistory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/EventStatusHistory'
+      responses:
+        '200':
+          description: Success
+  /api/eventtype:
+    get:
+      tags:
+        - EventType
+      operationId: GetEventTypes
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/EventType'
+    post:
+      tags:
+        - EventType
+      operationId: AddEventType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/EventType'
+      responses:
+        '200':
+          description: Success
+  '/api/eventtype/{id}':
+    get:
+      tags:
+        - EventType
+      operationId: GetByEventTypeId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/EventType'
+    put:
+      tags:
+        - EventType
+      operationId: UpdateEventType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/EventType'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - EventType
+      operationId: DeleteEventType
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/favorite/getbyuserid/{userId}':
+    get:
+      tags:
+        - Favorite
+      operationId: GetFavoritesByUserId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorite'
+  '/api/favorite/{id}':
+    get:
+      tags:
+        - Favorite
+      operationId: GetByFavoriteId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Favorite'
+    put:
+      tags:
+        - Favorite
+      operationId: UpdateFavorite
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Favorite'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Favorite
+      operationId: DeleteFavorite
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  /api/favorite:
+    post:
+      tags:
+        - Favorite
+      operationId: AddFavorite
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Favorite'
+      responses:
+        '200':
+          description: Success
+  /api/group:
+    get:
+      tags:
+        - Group
+      operationId: GetGroups
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Group'
+    post:
+      tags:
+        - Group
+      operationId: AddGroup
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '200':
+          description: Success
+  '/api/group/{id}':
+    get:
+      tags:
+        - Group
+      operationId: GetByGroupId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Group'
+    put:
+      tags:
+        - Group
+      operationId: UpdateGroup
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Group
+      operationId: DeleteGroup
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/imagecollection:
+    get:
+      tags:
+        - ImageCollection
+      operationId: GetCollections
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ImageCollection'
+    post:
+      tags:
+        - ImageCollection
+      operationId: AddCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ImageCollection'
+      responses:
+        '200':
+          description: Success
+  '/api/imagecollection/{id}':
+    get:
+      tags:
+        - ImageCollection
+      operationId: GetCollectionById
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ImageCollection'
+    put:
+      tags:
+        - ImageCollection
+      operationId: UpdateCollection
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ImageCollection'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - ImageCollection
+      operationId: DeleteCollection
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/invoice:
+    get:
+      tags:
+        - Invoice
+      operationId: GetInvoices
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Invoice'
+    post:
+      tags:
+        - Invoice
+      operationId: AddInvoice
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Invoice'
+      responses:
+        '200':
+          description: Success
+  '/api/invoice/getbybranchid/{branchId}':
+    get:
+      tags:
+        - Invoice
+      operationId: GetInvoicesByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Invoice'
+  '/api/invoice/{id}':
+    get:
+      tags:
+        - Invoice
+      operationId: GetByInvoiceId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Invoice'
+    put:
+      tags:
+        - Invoice
+      operationId: UpdateInvoice
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Invoice'
+      responses:
+        '200':
+          description: Success
+  /api/item:
+    get:
+      tags:
+        - Item
+      operationId: GetItems
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+    post:
+      tags:
+        - Item
+      operationId: AddItem
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Item'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Item
+      operationId: UpdateItem
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Item'
+      responses:
+        '200':
+          description: Success
+  '/api/item/getbybranchid/{cryptBranchId}':
+    get:
+      tags:
+        - Item
+      operationId: GetItemsByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptBranchId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  '/api/item/getbymenuid/{menuId}':
+    get:
+      tags:
+        - Item
+      operationId: GetItemsByMenuId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: menuId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  '/api/item/getbycategoryid/{categoryId}':
+    get:
+      tags:
+        - Item
+      operationId: GetItemsByCategoryId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: categoryId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  '/api/item/{id}':
+    get:
+      tags:
+        - Item
+      operationId: GetByItemId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Item'
+    delete:
+      tags:
+        - Item
+      operationId: DeleteItem
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - Item
+      operationId: PatchItem
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ItemDTO'
+      responses:
+        '200':
+          description: Success
+  '/api/item/getwithrelations/{id}':
+    get:
+      tags:
+        - Item
+      operationId: GetByItemIdWithRelations
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Item'
+  '/api/item/event/{eventId}':
+    get:
+      tags:
+        - Item
+      operationId: GetItemsByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  '/api/item/order/{cryptOrderId}':
+    get:
+      tags:
+        - Item
+      operationId: GetItemsByOrderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptOrderId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  '/api/item/search/{menu}/{category}':
+    get:
+      tags:
+        - Item
+      operationId: GetFilteredItems
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: menu
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: category
+          required: true
+          type: integer
+          format: int64
+        - in: query
+          name: query
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  /api/item/idlist:
+    get:
+      tags:
+        - Item
+      operationId: GetItemsByListQuery
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: idList
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  '/api/item/{menu}/{category}':
+    get:
+      tags:
+        - Item
+      operationId: GetItemByMenuAndCategory
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: menu
+          required: true
+          type: integer
+          format: int32
+        - in: path
+          name: category
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: query
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+  /api/item/rearrange:
+    patch:
+      tags:
+        - Item
+      operationId: RearrangeItem
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/itempricehistory/{id}':
+    get:
+      tags:
+        - ItemPriceHistory
+      operationId: GetPriceHistoryByItemId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ItemPriceHistory'
+  /api/itempricehistory:
+    post:
+      tags:
+        - ItemPriceHistory
+      operationId: AddItemPriceHistory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ItemPriceHistory'
+      responses:
+        '200':
+          description: Success
+  '/api/location/getbyuserid/{userId}':
+    get:
+      tags:
+        - Location
+      operationId: GetLocationsByUserId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Location'
+  /api/location/getbyuserid:
+    get:
+      tags:
+        - Location
+      operationId: GetByUserId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Location'
+  /api/location/getdeliverycostbycoordinates:
+    get:
+      tags:
+        - Location
+      operationId: GetDeliveryDetails
+      parameters:
+        - in: query
+          name: lat
+          type: string
+        - in: query
+          name: lng
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/api/location/{id}':
+    get:
+      tags:
+        - Location
+      operationId: GetByLocationId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Location'
+    put:
+      tags:
+        - Location
+      operationId: UpdateLocation
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Location'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Location
+      operationId: DeleteLocation
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  '/api/location/calculatedeliverycost/{branchid}/{x1}/{y1}/{x2}/{y2}':
+    get:
+      tags:
+        - Location
+      operationId: GetDeliveryCostByCoordinates
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchid
+          required: true
+          type: integer
+          format: int32
+        - in: path
+          name: x1
+          required: true
+          type: number
+          format: double
+        - in: path
+          name: y1
+          required: true
+          type: number
+          format: double
+        - in: path
+          name: x2
+          required: true
+          type: number
+          format: double
+        - in: path
+          name: y2
+          required: true
+          type: number
+          format: double
+      responses:
+        '200':
+          description: Success
+          schema:
+            format: double
+            type: number
+  /api/location:
+    post:
+      tags:
+        - Location
+      operationId: AddLocation
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Location'
+      responses:
+        '200':
+          description: Success
+  '/api/location/event/{eventId}':
+    get:
+      tags:
+        - Location
+      operationId: GetLocationByEventId
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  /api/log:
+    get:
+      tags:
+        - Log
+      operationId: GetLogFile
+      parameters:
+        - in: query
+          name: path
+          type: string
+          default: ''
+      responses:
+        '200':
+          description: Success
+  /api/logisticprovider:
+    get:
+      tags:
+        - LogisticProvider
+      operationId: GetLogisticProviders
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogisticProvider'
+    post:
+      tags:
+        - LogisticProvider
+      operationId: AddLogisticProvider
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/LogisticProvider'
+      responses:
+        '200':
+          description: Success
+  /api/logisticprovider/bybranch:
+    get:
+      tags:
+        - LogisticProvider
+      operationId: GetLogisticProvidersByBranch
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogisticProvider'
+  '/api/logisticprovider/{id}':
+    get:
+      tags:
+        - LogisticProvider
+      operationId: GetByLogisticProviderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LogisticProvider'
+    put:
+      tags:
+        - LogisticProvider
+      operationId: UpdateLogisticProvider
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/LogisticProvider'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - LogisticProvider
+      operationId: DeleteLogisticProvider
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/logisticprovider/toggleactive:
+    patch:
+      tags:
+        - LogisticProvider
+      operationId: updateIsActiveProvider
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/LogisticProvider'
+      responses:
+        '200':
+          description: Success
+  /api/logisticproviderrate:
+    get:
+      tags:
+        - LogisticProviderRate
+      operationId: GetLogisticProviderRates
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogisticProviderRate'
+    post:
+      tags:
+        - LogisticProviderRate
+      operationId: AddLogisticProviderRate
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/LogisticProviderRate'
+      responses:
+        '200':
+          description: Success
+  '/api/logisticproviderrate/{id}':
+    get:
+      tags:
+        - LogisticProviderRate
+      operationId: GetByLogisticProviderRateId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/LogisticProviderRate'
+    put:
+      tags:
+        - LogisticProviderRate
+      operationId: UpdateLogisticProviderRate
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/LogisticProviderRate'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - LogisticProviderRate
+      operationId: DeleteLogisticProviderRate
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/menu/getbybranchid/{branchId}':
+    get:
+      tags:
+        - Menu
+      operationId: GetMenuByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Menu'
+  '/api/menu/{id}':
+    get:
+      tags:
+        - Menu
+      operationId: GetByMenuId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Menu'
+    delete:
+      tags:
+        - Menu
+      operationId: DeleteMenu
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - Menu
+      operationId: MenuPatch
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/MenuPatchDTO'
+      responses:
+        '200':
+          description: Success
+  /api/menu:
+    get:
+      tags:
+        - Menu
+      operationId: GetAllMenus
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Menu'
+    post:
+      tags:
+        - Menu
+      operationId: AddMenu
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Menu'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Menu
+      operationId: UpdateMenu
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Menu'
+      responses:
+        '200':
+          description: Success
+  '/api/menucategory/menu/{menuId}':
+    get:
+      tags:
+        - MenuCategory
+      operationId: GetAllByMenuId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: menuId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+  '/api/menucategory/category/{categoryId}':
+    get:
+      tags:
+        - MenuCategory
+      operationId: GetAllByCategoryId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: categoryId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+  /api/option:
+    get:
+      tags:
+        - Option
+      operationId: GetOptions
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Option'
+    post:
+      tags:
+        - Option
+      operationId: AddOption
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Option'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Option
+      operationId: UpdateOption
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Option'
+      responses:
+        '200':
+          description: Success
+  '/api/option/getbyitemid/{itemId}':
+    get:
+      tags:
+        - Option
+      operationId: GetOptionsByItemId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: itemId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Option'
+  '/api/option/{id}':
+    get:
+      tags:
+        - Option
+      operationId: GetByOptionId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Option'
+    delete:
+      tags:
+        - Option
+      operationId: DeleteOption
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - Option
+      operationId: PatchOption
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/OptionDTO'
+      responses:
+        '200':
+          description: Success
+  /api/option/idlist:
+    get:
+      tags:
+        - Option
+      operationId: GetOptionByIdList
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: idList
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Option'
+    post:
+      tags:
+        - Option
+      operationId: GetByIdList
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: idList
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Option'
+  '/api/option/item/{itemId}':
+    get:
+      tags:
+        - Option
+      operationId: GetOptionByItem
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: itemId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Option'
+  '/api/option/order/{cryptOrderId}':
+    get:
+      tags:
+        - Option
+      operationId: GetOptionByOrderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptOrderId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Option'
+  '/api/order/getbybranchid/{branchId}':
+    get:
+      tags:
+        - Order
+      operationId: GetOrdersByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+  /api/order:
+    get:
+      tags:
+        - Order
+      operationId: GetAllOrders
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+    post:
+      tags:
+        - Order
+      operationId: AddOrder
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/OrderDto'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Order
+      operationId: UpdateOrder
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Success
+  '/api/order/{orderCryptId}/{newStatusCrypt}':
+    patch:
+      tags:
+        - Order
+      operationId: UpdateEncryptedOrderStatus
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: orderCryptId
+          required: true
+          type: string
+        - in: path
+          name: newStatusCrypt
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/OrderDto'
+  '/api/order/{cryptId}':
+    get:
+      tags:
+        - Order
+      operationId: GetByOrderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/OrderDto'
+  '/api/order/event/{eventId}':
+    get:
+      tags:
+        - Order
+      operationId: GetByCryptEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+        - in: query
+          name: statuses
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+  /api/order/event:
+    post:
+      tags:
+        - Order
+      operationId: CreateOrderEvent
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Order'
+  '/api/orderextra/order/{cryptOrderId}':
+    get:
+      tags:
+        - OrderExtra
+      operationId: GetAllByOrderId
+      parameters:
+        - in: path
+          name: cryptOrderId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/api/orderextra/event/{eventId}':
+    get:
+      tags:
+        - OrderExtra
+      operationId: GetAllByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderExtra'
+  '/api/orderitem/order/{cryptOrderId}':
+    get:
+      tags:
+        - OrderItem
+      operationId: GetOrderItemsByOrderId
+      parameters:
+        - in: path
+          name: cryptOrderId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+  '/api/orderitem/event/{eventId}':
+    get:
+      tags:
+        - OrderItem
+      operationId: GetOrderItemsByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderItem'
+  '/api/orderitemoption/event/{eventId}':
+    get:
+      tags:
+        - OrderItemOption
+      operationId: GetAllOrderItemOptionsByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderItemSelectedOptions'
+  '/api/orderitemside/order/{cryptOrderId}':
+    get:
+      tags:
+        - OrderItemSide
+      operationId: GetItemSideByOrderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptOrderId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderItemSelectedSides'
+  '/api/orderitemside/event/{eventId}':
+    get:
+      tags:
+        - OrderItemSide
+      operationId: GetItemSideByeventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderItemSelectedSides'
+  /api/orderstatus:
+    get:
+      tags:
+        - OrderStatus
+      operationId: GetOrderStatuses
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderStatus'
+    post:
+      tags:
+        - OrderStatus
+      operationId: AddOrderStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/OrderStatus'
+      responses:
+        '200':
+          description: Success
+  '/api/orderstatus/{id}':
+    get:
+      tags:
+        - OrderStatus
+      operationId: GetByOrderStatusId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/OrderStatus'
+    put:
+      tags:
+        - OrderStatus
+      operationId: UpdateOrderStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/OrderStatus'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - OrderStatus
+      operationId: DeleteOrderStatus
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/orderstatushistory/{cryptOrderId}':
+    get:
+      tags:
+        - OrderStatusHistory
+      operationId: GetStatusHistoryByOrderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptOrderId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrderStatusHistory'
+  /api/orderstatushistory:
+    post:
+      tags:
+        - OrderStatusHistory
+      operationId: AddOrderStatusHistory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/OrderStatusHistory'
+      responses:
+        '200':
+          description: Success
+  /api/paymentprovider:
+    get:
+      tags:
+        - PaymentProvider
+      operationId: GetPaymetProviders
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PaymentProvider'
+    post:
+      tags:
+        - PaymentProvider
+      operationId: AddPaymentProvider
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/PaymentProvider'
+      responses:
+        '200':
+          description: Success
+  '/api/paymentprovider/{id}':
+    get:
+      tags:
+        - PaymentProvider
+      operationId: GetByPaymentProviderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/PaymentProvider'
+    put:
+      tags:
+        - PaymentProvider
+      operationId: UpdatePaymentProvider
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/PaymentProvider'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - PaymentProvider
+      operationId: DeletePaymentProvider
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/paymenttype:
+    get:
+      tags:
+        - PaymentType
+      operationId: GetPaymentTypes
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PaymentType'
+    post:
+      tags:
+        - PaymentType
+      operationId: AddPaymentType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/PaymentType'
+      responses:
+        '200':
+          description: Success
+  '/api/paymenttype/getbybranchid/{branchId}':
+    get:
+      tags:
+        - PaymentType
+      operationId: GetPaymentTypesByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PaymentType'
+  '/api/paymenttype/{id}':
+    get:
+      tags:
+        - PaymentType
+      operationId: GetByPaymentTypeId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/PaymentType'
+    put:
+      tags:
+        - PaymentType
+      operationId: UpdatePaymentType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/PaymentType'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - PaymentType
+      operationId: DeletePaymentType
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/pointsexchange:
+    get:
+      tags:
+        - PointsExchange
+      operationId: GetPointsExchange
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PointsExchange'
+    post:
+      tags:
+        - PointsExchange
+      operationId: AddPointsExchange
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/PointsExchange'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - PointsExchange
+      operationId: UpdatePointsExchange
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/PointsExchange'
+      responses:
+        '200':
+          description: Success
+  /api/pointsexchange/getcurrent:
+    get:
+      tags:
+        - PointsExchange
+      operationId: GetCurrentPointsExchange
+      responses:
+        '200':
+          description: Success
+  /api/pointsexchange/toggleactive:
+    patch:
+      tags:
+        - PointsExchange
+      operationId: PatchPointsExchange
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/PointsExchange'
+      responses:
+        '200':
+          description: Success
+  /api/providerratetype:
+    get:
+      tags:
+        - ProviderRateType
+      operationId: GetProviderRateTypees
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProviderRateType'
+    post:
+      tags:
+        - ProviderRateType
+      operationId: AddProviderRateType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ProviderRateType'
+      responses:
+        '200':
+          description: Success
+  '/api/providerratetype/{id}':
+    get:
+      tags:
+        - ProviderRateType
+      operationId: GetByProviderRateTypeId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ProviderRateType'
+    put:
+      tags:
+        - ProviderRateType
+      operationId: UpdateProviderRateType
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ProviderRateType'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - ProviderRateType
+      operationId: DeleteProviderRateType
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/reservation:
+    get:
+      tags:
+        - Reservation
+      operationId: GetReservations
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Reservation'
+    post:
+      tags:
+        - Reservation
+      operationId: AddReservation
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Reservation'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Reservation
+      operationId: UpdateReservation
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Reservation'
+      responses:
+        '200':
+          description: Success
+  '/api/reservation/getbybranchid/{branchId}':
+    get:
+      tags:
+        - Reservation
+      operationId: GetReservationsByBranchId
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/reservation/{id}':
+    get:
+      tags:
+        - Reservation
+      operationId: GetByReservationId
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Reservation
+      operationId: DeleteReservation
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/reservation/user:
+    post:
+      tags:
+        - Reservation
+      operationId: AddUserReservation
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Reservation'
+      responses:
+        '200':
+          description: Success
+    get:
+      tags:
+        - Reservation
+      operationId: GetUserReservations
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Reservation'
+  /api/reservationspecialevents:
+    get:
+      tags:
+        - ReservationSpecialEvents
+      operationId: GetSpecialEvents
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: activesOnly
+          type: boolean
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReservationSpecialEvent'
+    post:
+      tags:
+        - ReservationSpecialEvents
+      operationId: AddSpecialEvent
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ReservationSpecialEvent'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - ReservationSpecialEvents
+      operationId: UpdateSpecialEvent
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ReservationSpecialEvent'
+      responses:
+        '200':
+          description: Success
+  /api/reservationspecialevents/future:
+    get:
+      tags:
+        - ReservationSpecialEvents
+      operationId: GetFutureSpecialEvents
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReservationSpecialEvent'
+  '/api/reservationspecialevents/getbybranchid/{branchId}':
+    get:
+      tags:
+        - ReservationSpecialEvents
+      operationId: GetSpecialEventsByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ReservationSpecialEvent'
+  '/api/reservationspecialevents/{id}':
+    get:
+      tags:
+        - ReservationSpecialEvents
+      operationId: GetBySpecialEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ReservationSpecialEvent'
+    delete:
+      tags:
+        - ReservationSpecialEvents
+      operationId: DeleteSpecialEvent
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  /api/reservationspecialevents/toggleactive:
+    patch:
+      tags:
+        - ReservationSpecialEvents
+      operationId: UpdateIsActiveSpecialEvent
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ReservationSpecialEvent'
+      responses:
+        '200':
+          description: Success
+  /api/reservationstatus:
+    get:
+      tags:
+        - ReservationStatus
+      operationId: GetReservationStatuses
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReservationStatus'
+    post:
+      tags:
+        - ReservationStatus
+      operationId: AddReservationStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ReservationStatus'
+      responses:
+        '200':
+          description: Success
+  '/api/reservationstatus/{id}':
+    get:
+      tags:
+        - ReservationStatus
+      operationId: GetByReservationStatusId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ReservationStatus'
+    put:
+      tags:
+        - ReservationStatus
+      operationId: UpdateReservationStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ReservationStatus'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - ReservationStatus
+      operationId: DeleteReservationStatus
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/reservationstatushistory/{id}':
+    get:
+      tags:
+        - ReservationStatusHistory
+      operationId: GetByReservationStatusHistoryId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ReservationStatusHistory'
+  /api/reservationstatushistory:
+    post:
+      tags:
+        - ReservationStatusHistory
+      operationId: AddReservationStatusHistory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ReservationStatusHistory'
+      responses:
+        '200':
+          description: Success
+  /api/role:
+    get:
+      tags:
+        - Role
+      operationId: GetRoles
+      responses:
+        '200':
+          description: Success
+  /api/side:
+    get:
+      tags:
+        - Side
+      operationId: GetSides
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Side'
+    post:
+      tags:
+        - Side
+      operationId: AddSide
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Side'
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - Side
+      operationId: UpdateSide
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Side'
+      responses:
+        '200':
+          description: Success
+  '/api/side/getbyitemid/{itemId}':
+    get:
+      tags:
+        - Side
+      operationId: GetSidesByItemId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: itemId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Side'
+  '/api/side/{id}':
+    get:
+      tags:
+        - Side
+      operationId: GetBySideId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Side'
+    delete:
+      tags:
+        - Side
+      operationId: DeleteSide
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  /api/side/idlist:
+    get:
+      tags:
+        - Side
+      operationId: GetSideByIdListQuery
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: query
+          name: idList
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Side'
+    post:
+      tags:
+        - Side
+      operationId: GetSideByIdList
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Side'
+  '/api/side/order/{cryptOrderId}':
+    get:
+      tags:
+        - Side
+      operationId: GetSideByOrderId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: cryptOrderId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Side'
+  '/api/side/event/{eventId}':
+    get:
+      tags:
+        - Side
+      operationId: GetSideByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Side'
+  '/api/side/item/{itemId}':
+    get:
+      tags:
+        - Side
+      operationId: GetSideByItem
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: itemId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Side'
+  /api/side/updateisactiveside:
+    patch:
+      tags:
+        - Side
+      operationId: UpdateIsActiveSide
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Side'
+      responses:
+        '200':
+          description: Success
+  '/api/sidepricehistory/{id}':
+    get:
+      tags:
+        - SidePriceHistory
+      operationId: GetPriceHistoryBySideId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/SidePriceHistory'
+  /api/sidepricehistory:
+    post:
+      tags:
+        - SidePriceHistory
+      operationId: AddSidePriceHistory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/SidePriceHistory'
+      responses:
+        '200':
+          description: Success
+  /api/socialaccount/facebook-login:
+    post:
+      tags:
+        - SocialAccount
+      operationId: FacebookLogin
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ExternalLogin'
+      responses:
+        '200':
+          description: Success
+  /externallogincallback:
+    post:
+      tags:
+        - SocialAccount
+      operationId: ExternalLoginCallback
+      responses:
+        '200':
+          description: Success
+  /api/transaction:
+    get:
+      tags:
+        - Transaction
+      operationId: GetTransactions
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClientTransaction'
+    post:
+      tags:
+        - Transaction
+      operationId: AddTransaction
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ClientTransaction'
+      responses:
+        '200':
+          description: Success
+  '/api/transaction/getbybranchid/{branchId}':
+    get:
+      tags:
+        - Transaction
+      operationId: GetTransactionsByBranchId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClientTransaction'
+  '/api/transaction/{id}/{startrange}/{endrange}':
+    get:
+      tags:
+        - Transaction
+      operationId: GetTransactionsByBranchIdAndDate
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: startrange
+          required: true
+          type: string
+        - in: path
+          name: endrange
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClientTransaction'
+  '/api/transaction/{id}':
+    get:
+      tags:
+        - Transaction
+      operationId: GetByTransactionId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ClientTransaction'
+    put:
+      tags:
+        - Transaction
+      operationId: UpdateTransaction
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ClientTransaction'
+      responses:
+        '200':
+          description: Success
+  '/api/transaction/event/{eventId}':
+    get:
+      tags:
+        - Transaction
+      operationId: GetClientTransactionsByEventId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ClientTransaction'
+  /api/transactionstatus:
+    get:
+      tags:
+        - TransactionStatus
+      operationId: GetTransactionStatuses
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TransactionStatus'
+    post:
+      tags:
+        - TransactionStatus
+      operationId: AddTransactionStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/TransactionStatus'
+      responses:
+        '200':
+          description: Success
+  '/api/transactionstatus/{id}':
+    get:
+      tags:
+        - TransactionStatus
+      operationId: GetByTransactionStatusId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/TransactionStatus'
+    put:
+      tags:
+        - TransactionStatus
+      operationId: UpdateTransactionStatus
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/TransactionStatus'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - TransactionStatus
+      operationId: DeleteTransactionStatus
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/transactionstatushistory/{id}':
+    get:
+      tags:
+        - TransactionStatusHistory
+      operationId: GetStatusHistoryByTransactionId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/TransactionStatusHistory'
+  /api/transactionstatushistory:
+    post:
+      tags:
+        - TransactionStatusHistory
+      operationId: AddTransactionStatusHistory
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/TransactionStatusHistory'
+      responses:
+        '200':
+          description: Success
+  /api/usernotification/user:
+    get:
+      tags:
+        - UserNotification
+      operationId: GetNotifcationsByCurrentUserId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserNotification'
+  '/api/usernotification/{id}':
+    get:
+      tags:
+        - UserNotification
+      operationId: GetByNotificationId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/UserNotification'
+    put:
+      tags:
+        - UserNotification
+      operationId: UpdateNotification
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/UserNotification'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - UserNotification
+      operationId: DeleteNotification
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  /api/usernotification:
+    post:
+      tags:
+        - UserNotification
+      operationId: AddNotification
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/UserNotification'
+      responses:
+        '200':
+          description: Success
+  /api/usernotification/markread:
+    put:
+      tags:
+        - UserNotification
+      operationId: MarkReadNotification
+      parameters:
+        - in: query
+          name: idList
+          type: string
+      responses:
+        '200':
+          description: Success
+  /api/usernotification/sendsms:
+    post:
+      tags:
+        - UserNotification
+      operationId: SendSms
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/TwilioMessage'
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: string
+  '/api/userpointstransaction/{startDate}/{endDate}':
+    get:
+      tags:
+        - UserPointsTransaction
+      operationId: GetAllUserPointsTransactionsByDate
+      parameters:
+        - in: path
+          name: startDate
+          required: true
+          type: string
+          format: date-time
+        - in: path
+          name: endDate
+          required: true
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Success
+  '/api/userpointstransaction/{userId}/{startDate}/{endDate}':
+    get:
+      tags:
+        - UserPointsTransaction
+      operationId: GetUserPointsTransactionByUserId
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: startDate
+          required: true
+          type: string
+          format: date-time
+        - in: path
+          name: endDate
+          required: true
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Success
+  '/api/userpointstransaction/getpointstotal/{userId}/{startDate}/{endDate}':
+    get:
+      tags:
+        - UserPointsTransaction
+      operationId: GetUserPointsTotalByUserId
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: startDate
+          required: true
+          type: string
+          format: date-time
+        - in: path
+          name: endDate
+          required: true
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Success
+  '/api/userpointstransaction/pointsneeded/{userId}':
+    get:
+      tags:
+        - UserPointsTransaction
+      operationId: GetUserPointsNeededByUserId
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+  '/api/userpointstransaction/{id}':
+    get:
+      tags:
+        - UserPointsTransaction
+      operationId: GetUserPointsTransactionById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - UserPointsTransaction
+      operationId: UpdateUserPointsTransaction
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/UserPointsTransaction'
+      responses:
+        '200':
+          description: Success
+  /api/userpointstransaction:
+    post:
+      tags:
+        - UserPointsTransaction
+      operationId: AddUserPointsTransaction
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/UserPointsTransaction'
+      responses:
+        '200':
+          description: Success
+  /api/zone:
+    get:
+      tags:
+        - Zone
+      operationId: GetZones
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Zone'
+    post:
+      tags:
+        - Zone
+      operationId: AddZone
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Zone'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Zone
+      operationId: UpdateZone
+      consumes:
+        - application/json
+        - text/json
+        - application/*+json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Zone'
+      responses:
+        '200':
+          description: Success
+  '/api/zone/{id}':
+    get:
+      tags:
+        - Zone
+      operationId: GetByZoneId
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Zone'
+    delete:
+      tags:
+        - Zone
+      operationId: DeleteZone
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+definitions:
+  AdSectionEnum:
+    format: int32
+    enum:
+      - 1
+      - 2
+      - 3
+    type: integer
+  GenderEnum:
+    format: int32
+    enum:
+      - 1
+      - 2
+    type: integer
+  AppUserModel:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      firstName:
+        type: string
+      lastName:
+        type: string
+      phoneNumber:
+        type: string
+      email:
+        type: string
+      userName:
+        type: string
+      preferences:
+        type: string
+      dob:
+        format: date-time
+        type: string
+      gender:
+        $ref: '#/definitions/GenderEnum'
+  ClientPayment:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      clientId:
+        format: int32
+        type: integer
+      client:
+        $ref: '#/definitions/Client'
+      transactionStartDate:
+        format: date-time
+        type: string
+      transactionEndDate:
+        format: date-time
+        type: string
+      paymentDate:
+        format: date-time
+        type: string
+      amount:
+        format: double
+        type: number
+      confirmationNumber:
+        type: string
+      bankFrom:
+        type: string
+      userId:
+        format: int64
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+  Invoice:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      invoiceNumber:
+        type: string
+      customerName:
+        type: string
+      taxId:
+        type: string
+      amount:
+        format: double
+        type: number
+      invoiceDate:
+        format: date-time
+        type: string
+      controlNumber:
+        type: string
+      notes:
+        type: string
+      transactionId:
+        format: int64
+        type: integer
+      transaction:
+        $ref: '#/definitions/ClientTransaction'
+  PaymentProvider:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      contact:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+      address:
+        type: string
+      website:
+        type: string
+      cityId:
+        format: int32
+        type: integer
+      countryId:
+        format: int32
+        type: integer
+      paymentTypes:
+        type: array
+        items:
+          $ref: '#/definitions/PaymentType'
+  BranchesPaymentTypes:
+    type: object
+    properties:
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+      paymentTypeId:
+        format: int32
+        type: integer
+      paymentType:
+        $ref: '#/definitions/PaymentType'
+  PaymentType:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      key:
+        type: string
+      password:
+        type: string
+      url:
+        type: string
+      logo:
+        type: string
+      paymentProviderId:
+        format: int32
+        type: integer
+      paymentProvider:
+        $ref: '#/definitions/PaymentProvider'
+      branchesPaymentTypes:
+        type: array
+        items:
+          $ref: '#/definitions/BranchesPaymentTypes'
+      transactions:
+        type: array
+        items:
+          $ref: '#/definitions/ClientTransaction'
+      processingPercentageFee:
+        format: double
+        type: number
+  TransactionStatus:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      transactions:
+        type: array
+        items:
+          $ref: '#/definitions/ClientTransaction'
+  ClientTransaction:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      paymentTypeId:
+        format: int32
+        type: integer
+      processorTransactionId:
+        type: string
+      eventId:
+        format: int64
+        type: integer
+      processorAuthorizationId:
+        type: string
+      processorDebtId:
+        type: string
+      transactionDateTime:
+        format: date-time
+        type: string
+      amount:
+        format: double
+        type: number
+      currentStatusId:
+        format: int32
+        type: integer
+      notes:
+        type: string
+      imageReference:
+        type: string
+      clientPaymentId:
+        format: int64
+        type: integer
+      clientPayment:
+        $ref: '#/definitions/ClientPayment'
+      invoice:
+        $ref: '#/definitions/Invoice'
+      paymentType:
+        $ref: '#/definitions/PaymentType'
+      event:
+        $ref: '#/definitions/Event'
+      reservation:
+        $ref: '#/definitions/Reservation'
+      transactionStatus:
+        $ref: '#/definitions/TransactionStatus'
+  ReservationSpecialEvent:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+      name:
+        type: string
+      description:
+        type: string
+      image:
+        type: string
+      currentPrice:
+        format: double
+        type: number
+      prepaid:
+        type: boolean
+      isActive:
+        type: boolean
+      startDateTime:
+        format: date-time
+        type: string
+      endDateTime:
+        format: date-time
+        type: string
+      reservations:
+        type: array
+        items:
+          $ref: '#/definitions/Reservation'
+  ReservationStatus:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      reservations:
+        type: array
+        items:
+          $ref: '#/definitions/Reservation'
+  ReservationStatusHistory:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      reservationId:
+        format: int64
+        type: integer
+      statusId:
+        format: int32
+        type: integer
+      changeDateTime:
+        format: date-time
+        type: string
+      adminUserId:
+        format: int64
+        type: integer
+      reservation:
+        $ref: '#/definitions/Reservation'
+  Reservation:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+      userId:
+        format: int64
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+      reservationDateTime:
+        format: date-time
+        type: string
+      requestedDateTime:
+        format: date-time
+        type: string
+      numberOfGuests:
+        format: int32
+        type: integer
+      specialEventId:
+        format: int64
+        type: integer
+      currentStatusId:
+        format: int32
+        type: integer
+      eventId:
+        format: int64
+        type: integer
+      event:
+        $ref: '#/definitions/Event'
+      transactionId:
+        format: int64
+        type: integer
+      transaction:
+        $ref: '#/definitions/ClientTransaction'
+      specialEvent:
+        $ref: '#/definitions/ReservationSpecialEvent'
+      reservationStatus:
+        $ref: '#/definitions/ReservationStatus'
+      reservationStatusHistories:
+        type: array
+        items:
+          $ref: '#/definitions/ReservationStatusHistory'
+      notes:
+        type: string
+  BranchesEventTypes:
+    type: object
+    properties:
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+      eventTypeId:
+        format: int32
+        type: integer
+      eventType:
+        $ref: '#/definitions/EventType'
+  EventType:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      deliverable:
+        type: boolean
+      events:
+        type: array
+        items:
+          $ref: '#/definitions/Event'
+      branchesEventTypes:
+        type: array
+        items:
+          $ref: '#/definitions/BranchesEventTypes'
+  EventStatus:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      events:
+        type: array
+        items:
+          $ref: '#/definitions/Event'
+  Coupon:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      name:
+        type: string
+      discountType:
+        format: int32
+        type: integer
+      type:
+        format: int32
+        type: integer
+      minAmount:
+        format: double
+        type: number
+      amount:
+        format: double
+        type: number
+      code:
+        type: string
+      expirationType:
+        format: int32
+        type: integer
+      endDate:
+        format: date-time
+        type: string
+      limit:
+        format: int32
+        type: integer
+      isActive:
+        type: boolean
+      branchId:
+        format: int32
+        type: integer
+      clientId:
+        format: int32
+        type: integer
+      client:
+        $ref: '#/definitions/Client'
+      branch:
+        $ref: '#/definitions/Branch'
+      events:
+        type: array
+        items:
+          $ref: '#/definitions/Event'
+  OrderStatus:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      billable:
+        type: boolean
+      orders:
+        type: array
+        items:
+          $ref: '#/definitions/Order'
+  OrderStatusHistory:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      orderId:
+        format: int64
+        type: integer
+      statusId:
+        format: int32
+        type: integer
+      changeDateTime:
+        format: date-time
+        type: string
+      adminUserId:
+        format: int64
+        type: integer
+      adminUser:
+        $ref: '#/definitions/User'
+      order:
+        $ref: '#/definitions/Order'
+  Menu:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      branchId:
+        format: int32
+        type: integer
+      name:
+        type: string
+      isActive:
+        type: boolean
+      branch:
+        $ref: '#/definitions/Branch'
+      menusCategories:
+        type: array
+        items:
+          $ref: '#/definitions/MenusCategories'
+  MenusCategories:
+    type: object
+    properties:
+      menuId:
+        format: int64
+        type: integer
+      menu:
+        $ref: '#/definitions/Menu'
+      categoryId:
+        format: int64
+        type: integer
+      category:
+        $ref: '#/definitions/Category'
+  Category:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      name:
+        type: string
+      image:
+        type: string
+      position:
+        format: int32
+        type: integer
+      isActive:
+        type: boolean
+      menusCategories:
+        type: array
+        items:
+          $ref: '#/definitions/MenusCategories'
+      categoriesItems:
+        type: array
+        items:
+          $ref: '#/definitions/CategoriesItems'
+      isVisibleInMenu:
+        type: boolean
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+  CategoriesItems:
+    type: object
+    properties:
+      itemId:
+        format: int64
+        type: integer
+      item:
+        $ref: '#/definitions/Item'
+      categoryId:
+        format: int64
+        type: integer
+      category:
+        $ref: '#/definitions/Category'
+  OrderExtra:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      orderId:
+        format: int64
+        type: integer
+      sideId:
+        format: int64
+        type: integer
+      quantity:
+        format: int32
+        type: integer
+      price:
+        format: double
+        type: number
+      side:
+        $ref: '#/definitions/Side'
+      order:
+        $ref: '#/definitions/Order'
+  SidePriceHistory:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      price:
+        format: double
+        type: number
+      startDate:
+        format: date-time
+        type: string
+      endDate:
+        format: date-time
+        type: string
+      sideId:
+        format: int64
+        type: integer
+      adminUserId:
+        format: int64
+        type: integer
+      side:
+        $ref: '#/definitions/Side'
+  OrderItemSelectedSides:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      itemId:
+        format: int64
+        type: integer
+      orderItemId:
+        format: int64
+        type: integer
+      orderItem:
+        $ref: '#/definitions/OrderItem'
+      sideId:
+        format: int64
+        type: integer
+      side:
+        $ref: '#/definitions/Side'
+      price:
+        format: double
+        type: number
+        readOnly: true
+  Side:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      name:
+        type: string
+      description:
+        type: string
+      currentPrice:
+        format: double
+        type: number
+      isActive:
+        type: boolean
+      image:
+        type: string
+      itemsSides:
+        type: array
+        items:
+          $ref: '#/definitions/ItemsSides'
+      orderExtras:
+        type: array
+        items:
+          $ref: '#/definitions/OrderExtra'
+      sidePriceHistories:
+        type: array
+        items:
+          $ref: '#/definitions/SidePriceHistory'
+      orderItemSelectedSides:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItemSelectedSides'
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+  ItemsSides:
+    type: object
+    properties:
+      itemId:
+        format: int64
+        type: integer
+      item:
+        $ref: '#/definitions/Item'
+      sideId:
+        format: int64
+        type: integer
+      side:
+        $ref: '#/definitions/Side'
+  OrderItemSelectedOptions:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      orderItemId:
+        format: int64
+        type: integer
+      orderItem:
+        $ref: '#/definitions/OrderItem'
+      optionId:
+        format: int64
+        type: integer
+      option:
+        $ref: '#/definitions/Option'
+  Option:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      name:
+        type: string
+      isActive:
+        type: boolean
+      choices:
+        type: string
+      itemsOptions:
+        type: array
+        items:
+          $ref: '#/definitions/ItemsOptions'
+      orderItemSelectedOptions:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItemSelectedOptions'
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+  ItemsOptions:
+    type: object
+    properties:
+      itemId:
+        format: int64
+        type: integer
+      item:
+        $ref: '#/definitions/Item'
+      optionId:
+        format: int64
+        type: integer
+      option:
+        $ref: '#/definitions/Option'
+  ItemPriceHistory:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      price:
+        format: double
+        type: number
+      startDate:
+        format: date-time
+        type: string
+      endDate:
+        format: date-time
+        type: string
+      itemId:
+        format: int64
+        type: integer
+      adminUserId:
+        format: int64
+        type: integer
+      item:
+        $ref: '#/definitions/Item'
+      adminUser:
+        $ref: '#/definitions/User'
+  Item:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      name:
+        type: string
+      description:
+        type: string
+      position:
+        format: int32
+        type: integer
+      image:
+        type: string
+      prepTimeMins:
+        format: int32
+        type: integer
+      currentPrice:
+        format: double
+        type: number
+      numberSidesRequired:
+        format: int32
+        type: integer
+      optionsRequired:
+        type: boolean
+      isActive:
+        type: boolean
+      categoriesItems:
+        type: array
+        items:
+          $ref: '#/definitions/CategoriesItems'
+      itemsSides:
+        type: array
+        items:
+          $ref: '#/definitions/ItemsSides'
+      itemsOptions:
+        type: array
+        items:
+          $ref: '#/definitions/ItemsOptions'
+      itemPriceHistories:
+        type: array
+        items:
+          $ref: '#/definitions/ItemPriceHistory'
+      orderItems:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItem'
+      isVisibleInMenu:
+        type: boolean
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+  OrderItem:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      orderId:
+        format: int64
+        type: integer
+      itemId:
+        format: int64
+        type: integer
+      quantity:
+        format: int32
+        type: integer
+      price:
+        format: double
+        type: number
+      notes:
+        type: string
+      item:
+        $ref: '#/definitions/Item'
+      order:
+        $ref: '#/definitions/Order'
+      selectedSides:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItemSelectedSides'
+      selectedOptions:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItemSelectedOptions'
+  Order:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      createOrderDateTime:
+        format: date-time
+        type: string
+      currentStatusId:
+        format: int32
+        type: integer
+      scheduledOrderReady:
+        format: date-time
+        type: string
+      clientOrderId:
+        type: string
+      eventId:
+        format: int64
+        type: integer
+      event:
+        $ref: '#/definitions/Event'
+      orderStatus:
+        $ref: '#/definitions/OrderStatus'
+      orderStatusHistories:
+        type: array
+        items:
+          $ref: '#/definitions/OrderStatusHistory'
+      orderItems:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItem'
+      orderExtras:
+        type: array
+        items:
+          $ref: '#/definitions/OrderExtra'
+  EventStatusHistory:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      eventId:
+        format: int64
+        type: integer
+      statusId:
+        format: int32
+        type: integer
+      changeDateTime:
+        format: date-time
+        type: string
+      adminUserId:
+        format: int64
+        type: integer
+      event:
+        $ref: '#/definitions/Event'
+  Event:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      startDateTime:
+        format: date-time
+        type: string
+      endDateTime:
+        format: date-time
+        type: string
+      details:
+        type: string
+      customerName:
+        type: string
+      customerId:
+        type: string
+      appUserId:
+        format: int64
+        type: integer
+      branchId:
+        format: int32
+        type: integer
+      typeId:
+        format: int32
+        type: integer
+      currentStatusId:
+        format: int32
+        type: integer
+      tableNumber:
+        type: string
+      logisticsProviderId:
+        format: int32
+        type: integer
+      totalAmount:
+        format: double
+        type: number
+      pctMyFoodApp:
+        format: double
+        type: number
+      couponCode:
+        type: string
+      couponId:
+        format: int64
+        type: integer
+      couponDiscountAmount:
+        format: double
+        type: number
+      destinationLocationId:
+        format: int64
+        type: integer
+      deliveryDistanceKm:
+        format: double
+        type: number
+      deliveryCost:
+        format: double
+        type: number
+      transactionId:
+        format: int64
+        type: integer
+      destinationLocation:
+        $ref: '#/definitions/Location'
+      user:
+        $ref: '#/definitions/AppUserModel'
+      branch:
+        $ref: '#/definitions/Branch'
+      reservation:
+        $ref: '#/definitions/Reservation'
+      eventType:
+        $ref: '#/definitions/EventType'
+      eventStatus:
+        $ref: '#/definitions/EventStatus'
+      transaction:
+        $ref: '#/definitions/ClientTransaction'
+      coupon:
+        $ref: '#/definitions/Coupon'
+      orders:
+        type: array
+        items:
+          $ref: '#/definitions/Order'
+      eventStatusHistories:
+        type: array
+        items:
+          $ref: '#/definitions/EventStatusHistory'
+  Country:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      countryName:
+        type: string
+      countryPhoneCode:
+        type: string
+      cities:
+        type: array
+        items:
+          $ref: '#/definitions/City'
+      locations:
+        type: array
+        items:
+          $ref: '#/definitions/Location'
+      paymentProviders:
+        type: array
+        items:
+          $ref: '#/definitions/PaymentProvider'
+  City:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      cityName:
+        type: string
+      countryId:
+        format: int32
+        type: integer
+      country:
+        $ref: '#/definitions/Country'
+      locations:
+        type: array
+        items:
+          $ref: '#/definitions/Location'
+      paymentProviders:
+        type: array
+        items:
+          $ref: '#/definitions/PaymentProvider'
+      zones:
+        type: array
+        items:
+          $ref: '#/definitions/Zone'
+  Zone:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      zoneName:
+        type: string
+      coordinates:
+        type: string
+      cityId:
+        format: int32
+        type: integer
+      city:
+        $ref: '#/definitions/City'
+      locations:
+        type: array
+        items:
+          $ref: '#/definitions/Location'
+      branches:
+        type: array
+        items:
+          $ref: '#/definitions/Branch'
+  Location:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      coordinates:
+        type: string
+      address:
+        type: string
+      zoneId:
+        format: int32
+        type: integer
+      cityId:
+        format: int32
+        type: integer
+      countryId:
+        format: int32
+        type: integer
+      iconIndex:
+        type: string
+      notes:
+        type: string
+      eventId:
+        format: int64
+        type: integer
+      event:
+        $ref: '#/definitions/Event'
+      userId:
+        format: int64
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+      zone:
+        $ref: '#/definitions/Zone'
+      city:
+        $ref: '#/definitions/City'
+      country:
+        $ref: '#/definitions/Country'
+  Favorite:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      menuItemId:
+        format: int64
+        type: integer
+      userId:
+        format: int64
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+  UserNotificationType:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      typeName:
+        type: string
+      userNotificationId:
+        format: int32
+        type: integer
+      userNotifications:
+        type: array
+        items:
+          $ref: '#/definitions/UserNotification'
+  UserNotification:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      message:
+        type: string
+      notificationTypeId:
+        format: int32
+        type: integer
+      isRead:
+        type: boolean
+      userId:
+        format: int64
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+      userNotificationType:
+        $ref: '#/definitions/UserNotificationType'
+  UserPointTransactionTypeEnum:
+    format: int32
+    enum:
+      - 1
+      - 2
+    type: integer
+  ActionPointTypeEnum:
+    format: int32
+    enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+    type: integer
+  PointsExchange:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      requiredPoints:
+        format: int32
+        type: integer
+      imageUrl:
+        type: string
+      description:
+        type: string
+      startDate:
+        format: date-time
+        type: string
+      endDate:
+        format: date-time
+        type: string
+      isActive:
+        type: boolean
+      userPointTransactions:
+        type: array
+        items:
+          $ref: '#/definitions/UserPointsTransaction'
+  UserPointsTransaction:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      date:
+        format: date-time
+        type: string
+      userId:
+        format: int64
+        type: integer
+      transactionType:
+        $ref: '#/definitions/UserPointTransactionTypeEnum'
+      points:
+        format: int32
+        type: integer
+      action:
+        $ref: '#/definitions/ActionPointTypeEnum'
+      notes:
+        type: string
+      pointEventId:
+        format: int64
+        type: integer
+      pointsExchangeId:
+        format: int32
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+      pointsExchange:
+        $ref: '#/definitions/PointsExchange'
+  User:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      dob:
+        format: date-time
+        type: string
+      gender:
+        $ref: '#/definitions/GenderEnum'
+      preferences:
+        type: array
+        items:
+          type: string
+      locations:
+        type: array
+        items:
+          $ref: '#/definitions/Location'
+      favorites:
+        type: array
+        items:
+          $ref: '#/definitions/Favorite'
+      appUserNotifications:
+        type: array
+        items:
+          $ref: '#/definitions/UserNotification'
+      events:
+        type: array
+        items:
+          $ref: '#/definitions/Event'
+      orderStatusHistories:
+        type: array
+        items:
+          $ref: '#/definitions/OrderStatusHistory'
+      clientsAdminUsers:
+        type: array
+        items:
+          $ref: '#/definitions/ClientsAdminUsers'
+      userPointTransactions:
+        type: array
+        items:
+          $ref: '#/definitions/UserPointsTransaction'
+      id:
+        format: int64
+        type: integer
+      userName:
+        type: string
+      normalizedUserName:
+        type: string
+      email:
+        type: string
+      normalizedEmail:
+        type: string
+      emailConfirmed:
+        type: boolean
+      passwordHash:
+        type: string
+      securityStamp:
+        type: string
+      concurrencyStamp:
+        type: string
+      phoneNumber:
+        type: string
+      phoneNumberConfirmed:
+        type: boolean
+      twoFactorEnabled:
+        type: boolean
+      lockoutEnd:
+        format: date-time
+        type: string
+      lockoutEnabled:
+        type: boolean
+      accessFailedCount:
+        format: int32
+        type: integer
+  ClientsAdminUsers:
+    type: object
+    properties:
+      clientId:
+        format: int32
+        type: integer
+      client:
+        $ref: '#/definitions/Client'
+      userId:
+        format: int64
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+  Client:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      clientName:
+        type: string
+      isActive:
+        type: boolean
+      bannerURL:
+        type: string
+      logoURL:
+        type: string
+      branches:
+        type: array
+        items:
+          $ref: '#/definitions/Branch'
+      clientsUsers:
+        type: array
+        items:
+          $ref: '#/definitions/ClientsAdminUsers'
+      coupons:
+        type: array
+        items:
+          $ref: '#/definitions/Coupon'
+  BranchPreferences:
+    type: object
+    properties:
+      branchId:
+        format: int32
+        type: integer
+      preferenceName:
+        type: string
+      preferenceValue:
+        type: string
+      type:
+        type: string
+      superAdminOnly:
+        type: boolean
+      branch:
+        $ref: '#/definitions/Branch'
+  TimeSpan:
+    type: object
+    properties:
+      ticks:
+        format: int64
+        type: integer
+        readOnly: true
+      days:
+        format: int32
+        type: integer
+        readOnly: true
+      hours:
+        format: int32
+        type: integer
+        readOnly: true
+      milliseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      minutes:
+        format: int32
+        type: integer
+        readOnly: true
+      seconds:
+        format: int32
+        type: integer
+        readOnly: true
+      totalDays:
+        format: double
+        type: number
+        readOnly: true
+      totalHours:
+        format: double
+        type: number
+        readOnly: true
+      totalMilliseconds:
+        format: double
+        type: number
+        readOnly: true
+      totalMinutes:
+        format: double
+        type: number
+        readOnly: true
+      totalSeconds:
+        format: double
+        type: number
+        readOnly: true
+  BranchExceptionDate:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      branchId:
+        format: int32
+        type: integer
+      service:
+        type: string
+      isClosed:
+        type: boolean
+      branch:
+        $ref: '#/definitions/Branch'
+      exceptionDate:
+        format: date-time
+        type: string
+      timeStart1:
+        $ref: '#/definitions/TimeSpan'
+      timeStart2:
+        $ref: '#/definitions/TimeSpan'
+      timeStart3:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd1:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd2:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd3:
+        $ref: '#/definitions/TimeSpan'
+  Group:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      image:
+        type: string
+      isActive:
+        type: boolean
+      branchesGroups:
+        type: array
+        items:
+          $ref: '#/definitions/BranchesGroups'
+  BranchesGroups:
+    type: object
+    properties:
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+      groupId:
+        format: int32
+        type: integer
+      group:
+        $ref: '#/definitions/Group'
+  ProviderRateType:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+  LogisticProviderRate:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      logisticProviderId:
+        format: int32
+        type: integer
+      logisticProvider:
+        $ref: '#/definitions/LogisticProvider'
+      rateTypeId:
+        format: int32
+        type: integer
+      rateType:
+        $ref: '#/definitions/ProviderRateType'
+      startRange:
+        format: int32
+        type: integer
+      endRange:
+        format: int32
+        type: integer
+      fee:
+        format: double
+        type: number
+  LogisticProvider:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      contact:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+      whatsapp:
+        type: string
+      address:
+        type: string
+      webSite:
+        type: string
+      cityId:
+        format: int32
+        type: integer
+      city:
+        $ref: '#/definitions/City'
+      countryId:
+        format: int32
+        type: integer
+      isActive:
+        type: boolean
+      country:
+        $ref: '#/definitions/Country'
+      branchLogisticProviders:
+        type: array
+        items:
+          $ref: '#/definitions/BranchLogisticProvider'
+      logisticProviderRates:
+        type: array
+        items:
+          $ref: '#/definitions/LogisticProviderRate'
+  BranchLogisticProvider:
+    type: object
+    properties:
+      branchId:
+        format: int32
+        type: integer
+      branch:
+        $ref: '#/definitions/Branch'
+      logisticProviderId:
+        format: int32
+        type: integer
+      logisticProvider:
+        $ref: '#/definitions/LogisticProvider'
+      isBranchDefault:
+        type: boolean
+  Branch:
+    type: object
+    properties:
+      name:
+        type: string
+      address:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+      mobilePhone:
+        type: string
+      whatsapp:
+        type: string
+      website:
+        type: string
+      nit:
+        type: string
+      coordinates:
+        type: string
+      zoneId:
+        format: int32
+        type: integer
+      bannerUrl:
+        type: string
+      logoUrl:
+        type: string
+      cityId:
+        format: int32
+        type: integer
+      countryId:
+        format: int32
+        type: integer
+      clientId:
+        format: int32
+        type: integer
+      isActive:
+        type: boolean
+      tags:
+        type: array
+        items:
+          type: string
+      client:
+        $ref: '#/definitions/Client'
+      menus:
+        type: array
+        items:
+          $ref: '#/definitions/Menu'
+      zone:
+        $ref: '#/definitions/Zone'
+      city:
+        $ref: '#/definitions/City'
+      country:
+        $ref: '#/definitions/Country'
+      branchPreferences:
+        type: array
+        items:
+          $ref: '#/definitions/BranchPreferences'
+      branchExceptionDates:
+        type: array
+        items:
+          $ref: '#/definitions/BranchExceptionDate'
+      events:
+        type: array
+        items:
+          $ref: '#/definitions/Event'
+      branchesPaymentTypes:
+        type: array
+        items:
+          $ref: '#/definitions/BranchesPaymentTypes'
+      branchesGroups:
+        type: array
+        items:
+          $ref: '#/definitions/BranchesGroups'
+      branchesEventTypes:
+        type: array
+        items:
+          $ref: '#/definitions/BranchesEventTypes'
+      coupons:
+        type: array
+        items:
+          $ref: '#/definitions/Coupon'
+      branchLogisticProviders:
+        type: array
+        items:
+          $ref: '#/definitions/BranchLogisticProvider'
+      imageCollection:
+        $ref: '#/definitions/ImageCollection'
+      id:
+        type: string
+  ImageCollection:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      sectionName:
+        $ref: '#/definitions/AdSectionEnum'
+      branchId:
+        format: int32
+        type: integer
+      name:
+        type: string
+      isActive:
+        type: boolean
+      adImages:
+        type: array
+        items:
+          $ref: '#/definitions/AdImage'
+      branch:
+        $ref: '#/definitions/Branch'
+  AdImage:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      collectionId:
+        format: int32
+        type: integer
+      imageUrl:
+        type: string
+      imageLink:
+        type: string
+      parameters:
+        type: string
+      imageCollection:
+        $ref: '#/definitions/ImageCollection'
+  AuthenticateModel:
+    required:
+      - email
+      - password
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+  RegisterModel:
+    required:
+      - dob
+      - email
+      - firstName
+      - gender
+      - lastName
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      phoneNumber:
+        type: string
+      password:
+        type: string
+      userName:
+        type: string
+      preferences:
+        type: string
+      role:
+        type: string
+      dob:
+        format: date-time
+        type: string
+      gender:
+        $ref: '#/definitions/GenderEnum'
+  WebUserDTO:
+    type: object
+    properties:
+      fullname:
+        type: string
+      roles:
+        type: array
+        items:
+          type: string
+        readOnly: true
+  UpdateModel:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      phoneNumber:
+        type: string
+      password:
+        type: string
+      preferences:
+        type: string
+      role:
+        type: string
+  ResetPasswordDTO:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      token:
+        type: string
+  BranchDTO:
+    type: object
+    properties:
+      branchName:
+        type: string
+      clientName:
+        type: string
+      bannerUrl:
+        type: string
+      logoUrl:
+        type: string
+      address:
+        type: string
+      email:
+        type: string
+      coordinates:
+        type: string
+      nit:
+        type: string
+      phone:
+        type: string
+      mobilePhone:
+        type: string
+      whatsapp:
+        type: string
+      website:
+        type: string
+      branchesEventTypes:
+        type: array
+        items:
+          $ref: '#/definitions/BranchesEventTypes'
+      logisticProviderDefault:
+        $ref: '#/definitions/LogisticProvider'
+  DayOfWeek:
+    format: int32
+    enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+    type: integer
+  BranchSchedule:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      branchId:
+        format: int32
+        type: integer
+      service:
+        type: string
+      day:
+        $ref: '#/definitions/DayOfWeek'
+      timeStart1:
+        $ref: '#/definitions/TimeSpan'
+      timeStart2:
+        $ref: '#/definitions/TimeSpan'
+      timeStart3:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd1:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd2:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd3:
+        $ref: '#/definitions/TimeSpan'
+  BranchDateScheduleDto:
+    type: object
+    properties:
+      branchId:
+        format: int32
+        type: integer
+      service:
+        type: string
+      date:
+        format: date-time
+        type: string
+      isClosed:
+        type: boolean
+      timeStart1:
+        $ref: '#/definitions/TimeSpan'
+      timeStart2:
+        $ref: '#/definitions/TimeSpan'
+      timeStart3:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd1:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd2:
+        $ref: '#/definitions/TimeSpan'
+      timeEnd3:
+        $ref: '#/definitions/TimeSpan'
+  CategoryDTO:
+    type: object
+    properties:
+      name:
+        type: string
+      image:
+        type: string
+      isActive:
+        type: boolean
+      isVisibleInMenu:
+        type: boolean
+      menusCategories:
+        type: array
+        items:
+          $ref: '#/definitions/MenusCategories'
+  DebtDTO:
+    type: object
+    properties:
+      appKey:
+        type: string
+      emailClient:
+        type: string
+      id:
+        type: string
+      description:
+        type: string
+      callbackUrl:
+        type: string
+      clientName:
+        type: string
+      clientLastName:
+        type: string
+      documentNumber:
+        type: string
+      businessName:
+        type: string
+      debtDetailLines:
+        type: string
+  ItemDTO:
+    type: object
+    properties:
+      isActive:
+        type: boolean
+      isVisibleInMenu:
+        type: boolean
+      image:
+        type: string
+  MenuPatchDTO:
+    type: object
+    properties:
+      name:
+        type: string
+      isActive:
+        type: boolean
+  OptionDTO:
+    type: object
+    properties:
+      isActive:
+        type: boolean
+  Int32KeyValue:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      description:
+        type: string
+  OrderItemDto:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      orderItemId:
+        format: int32
+        type: integer
+      extraId:
+        format: int32
+        type: integer
+      detailId:
+        type: string
+        readOnly: true
+      quantity:
+        format: int32
+        type: integer
+      name:
+        type: string
+      description:
+        type: string
+      prepTimeMins:
+        format: int32
+        type: integer
+      currentPrice:
+        format: double
+        type: number
+      option:
+        $ref: '#/definitions/Int32KeyValue'
+      sides:
+        type: array
+        items:
+          $ref: '#/definitions/Int32KeyValue'
+  AddressDto:
+    type: object
+    properties:
+      street:
+        type: string
+      number:
+        type: string
+      depto:
+        type: string
+      reference:
+        type: string
+      coordinates:
+        type: object
+  CustomerDto:
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/AddressDto'
+      id:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+  PaymentDto:
+    type: object
+    properties:
+      transactionImage:
+        type: string
+      reference:
+        type: string
+      methodType:
+        type: string
+      transactionConfirmed:
+        type: boolean
+  OrderDto:
+    type: object
+    properties:
+      orderDetail:
+        type: array
+        items:
+          $ref: '#/definitions/OrderItemDto'
+      customer:
+        $ref: '#/definitions/CustomerDto'
+      payment:
+        $ref: '#/definitions/PaymentDto'
+      orderStatus:
+        format: int32
+        type: integer
+      id:
+        format: int64
+        type: integer
+  ExternalLogin:
+    type: object
+    properties:
+      token:
+        type: string
+      email:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+  TransactionStatusHistory:
+    type: object
+    properties:
+      id:
+        format: int64
+        type: integer
+      transactionId:
+        format: int64
+        type: integer
+      statusId:
+        format: int32
+        type: integer
+      changeDateTime:
+        format: date-time
+        type: string
+      adminUserId:
+        format: int64
+        type: integer
+      transaction:
+        $ref: '#/definitions/ClientTransaction'
+  TwilioMessage:
+    type: object
+    properties:
+      toPhoneNum:
+        type: string
+      fromPhoneNum:
+        type: string
+      msgBody:
+        type: string

@@ -1,0 +1,200 @@
+[
+  {
+    "name"     : "empresa 1",
+    "logoUrl"  : "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/LOGO-KFC.png",
+    "bannerUrl": "https://picsum.photos/900/300?food=1000",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : [
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/ALITAS-PICANTE.jpeg?food=1000",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/BURRITO.jpg?food=1001",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CARNE.jpg?food=1002",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHESSEBURGUER.jpeg?food=1003",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO.jpg?food=1004",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO2.jpg?food=1005"
+    ]
+  },
+  {
+    "name"     : "empresa 2",
+    "bannerUrl": "https://picsum.photos/700/400?food=1002",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : [
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/ALITAS-PICANTE.jpeg?food=1000",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/BURRITO.jpg?food=1001",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CARNE.jpg?food=1002",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHESSEBURGUER.jpeg?food=1003"
+    ]
+  },
+  {
+    "name"     : "empresa 3",
+    "logoUrl"  : "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/LOGO-YO-SUSHI.png",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : [
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/ALITAS-PICANTE.jpeg?food=1000",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/BURRITO.jpg?food=1001",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CARNE.jpg?food=1002",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHESSEBURGUER.jpeg?food=1003",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO.jpg?food=1004",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO2.jpg?food=1005"
+    ]
+  },
+  {
+    "name"     : "empresa 4",
+    "bannerUrl": "https://picsum.photos/700/400?food=1004",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : []
+  },
+  {
+    "name"     : "empresa 5",
+    "logoUrl"  : "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/LOGO-DOMINOS.png",
+    "bannerUrl": "https://picsum.photos/700/400?food=1005",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : [
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HAMBURGUESA-HUEVO.jpg?food=1011",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HAMBURGUESA-TOSINO.jpg?food=1012",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/HAMBURGUESA.jpg?food=1013"
+    ]
+  },
+  {
+    "name"     : "empresa 6",
+    "bannerUrl": "https://picsum.photos/700/400?food=1006",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : []
+  },
+  {
+    "name"     : "empresa 7",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : [
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/ALITAS-PICANTE.jpeg?food=1000",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/BURRITO.jpg?food=1001",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CARNE.jpg?food=1002",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHESSEBURGUER.jpeg?food=1003",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO.jpg?food=1004",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO2.jpg?food=1005"
+    ]
+  },
+  {
+    "name"     : "empresa 8",
+    "bannerUrl": "https://picsum.photos/700/400?food=1008",
+    "schedule" : "Lun-Vie | 11am-9pm",
+    "tags"     : [
+      {
+        "name" : "pastas",
+        "color": "orange"
+      },
+      {
+        "name" : "hamburguesas",
+        "color": "orange"
+      },
+      {
+        "name" : "pastas",
+        "color": "orange"
+      }
+    ],
+    "gallery"  : [
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/ALITAS-PICANTE.jpeg?food=1000",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/BURRITO.jpg?food=1001",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CARNE.jpg?food=1002",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHESSEBURGUER.jpeg?food=1003",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO.jpg?food=1004",
+      "https://enbus.sfo2.digitaloceanspaces.com/myfoodappassets/CHURRASCO2.jpg?food=1005"
+    ]
+  }
+]

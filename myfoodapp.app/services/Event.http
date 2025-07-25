@@ -1,0 +1,151 @@
+### return all events CHECK LUEGO
+GET {{host}}/api/event/user
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### JUST FOR ADMIN
+GET {{host}}/api/event
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### JUST FOR ADMIN
+GET {{host}}/api/event/189
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### CHECKED
+GET {{host}}/api/eventstatus
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### OK
+GET {{host}}/api/eventtype
+Accept: application/json
+Authorization: Bearer {{token}}
+
+
+### GE Pedido Pickup
+### GI Pedido Delivery
+### GM Camarero Virtual
+### GQ Reserva
+### returns [] empty
+GET {{host}}/api/branch/getbyeventtypeid/GE
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/branch/search?eventtypes=GE&criteria=Mac
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/branch/
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/group
+Accept: application/json
+Authorization: Bearer {{token}}
+
+
+###
+GET {{host}}/api/item/getbybranchid/GE
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/item/10
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/option/item/10
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/api/side
+Accept: application/json
+Authorization: Bearer {{token}}
+branchId:GEYA
+
+###
+GET {{host}}/api/paymenttype
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET https://storage.googleapis.com/my-food-app-branch/banner_GA.jpg?version=1044838911
+
+
+###
+# MACDONALDS GE
+GET {{host}}/api/item/getbybranchid/GE
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/event
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+branchId:GE
+
+{
+  "typeId": "GE"
+}
+
+###
+
+POST {{host}}/api/order
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "orderDetail": "test"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+GET {{host}}/api/location/calculatedeliverycost/2/-17,7/-63.556/-17.4/-63.554
+Accept: application/json
+Authorization: Bearer {{token}}
+
+
+###
+GET http://api-dot-aqueous-aileron-281300.appspot.com/api/branch/servicetag
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/reservation
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "eventId": 142,
+  "numberOfGuests": 3,
+  "reservationDateTime": "2020-12-19T11:29:39.267Z",
+  "userId": 1
+}

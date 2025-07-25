@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+
+  reverseproxy:
+    container_name: api-reverseproxy
+    build:
+      context: ./nginx
+      dockerfile: Nginx.Dockerfile
+    ports:
+    - "80:80"
+    - "443:443"
+    restart: always
+
+  myfoodapp.api:
+    image: gcr.io/aqueous-aileron-281300/dev-mfa-api:latest
+    container_name: myfoodapp-api
+    depends_on:
+      - reverseproxy
+    build:
+      context: .
+      dockerfile: Api.Dockerfile
+    expose:
+      - "5000"
+    restart: always

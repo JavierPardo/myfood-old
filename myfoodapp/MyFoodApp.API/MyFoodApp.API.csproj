@@ -1,0 +1,157 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>f44b9402-e227-4667-b83a-7fd7d324cb33</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Infrastructure\Response\**" />
+    <Compile Remove="Migrations\SqliteMigrations\**" />
+    <Compile Remove="Migrations\SqlServerMigrations\**" />
+    <Compile Remove="Repositories\NewFolder\**" />
+    <Content Remove="Infrastructure\Response\**" />
+    <Content Remove="Migrations\SqliteMigrations\**" />
+    <Content Remove="Migrations\SqlServerMigrations\**" />
+    <Content Remove="Repositories\NewFolder\**" />
+    <EmbeddedResource Remove="Infrastructure\Response\**" />
+    <EmbeddedResource Remove="Migrations\SqliteMigrations\**" />
+    <EmbeddedResource Remove="Migrations\SqlServerMigrations\**" />
+    <EmbeddedResource Remove="Repositories\NewFolder\**" />
+    <None Remove="Infrastructure\Response\**" />
+    <None Remove="Migrations\SqliteMigrations\**" />
+    <None Remove="Migrations\SqlServerMigrations\**" />
+    <None Remove="Repositories\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\Menu\CategoriesItemsController.cs" />
+    <Compile Remove="Controllers\Menu\ItemsOptionsController.cs" />
+    <Compile Remove="Controllers\Menu\ItemsSidesController.cs" />
+    <Compile Remove="Controllers\Menu\MenusCategoriesController.cs" />
+    <Compile Remove="Entities\Menu\ItemsSides.cs" />
+    <Compile Remove="Helpers\SqliteDataContext.cs" />
+    <Compile Remove="Infrastructure\Exception\ApiBadRequestException.cs" />
+    <Compile Remove="Infrastructure\Exception\ApiNotFoundException.cs" />
+    <Compile Remove="Migrations\20200609012249_AddIdentity2.cs" />
+    <Compile Remove="Migrations\20200609012249_AddIdentity2.Designer.cs" />
+    <Compile Remove="Migrations\20200614165034_AspNetUsersSeedData.cs" />
+    <Compile Remove="Migrations\20200614165034_AspNetUsersSeedData.Designer.cs" />
+    <Compile Remove="Migrations\20200614174857_Reset.cs" />
+    <Compile Remove="Migrations\20200614174857_Reset.Designer.cs" />
+    <Compile Remove="Migrations\20200711210307_AddingReservationPackageTableCategoryItemUpdated.cs" />
+    <Compile Remove="Migrations\20200711210307_AddingReservationPackageTableCategoryItemUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20200720012611_Cambiando ReservationPackage to ReservationSpecialEvents.cs" />
+    <Compile Remove="Migrations\20200720012611_Cambiando ReservationPackage to ReservationSpecialEvents.Designer.cs" />
+    <Compile Remove="Migrations\20201229153809_Add BranchNotifications table.cs" />
+    <Compile Remove="Migrations\20201229153809_Add BranchNotifications table.Designer.cs" />
+    <Compile Remove="Migrations\20201229154433_Add BranchNotifications table.cs" />
+    <Compile Remove="Migrations\20201229154433_Add BranchNotifications table.Designer.cs" />
+    <Compile Remove="Migrations\20201229155446_Add BranchNotifications table.cs" />
+    <Compile Remove="Migrations\20201229155446_Add BranchNotifications table.Designer.cs" />
+    <Compile Remove="Migrations\20201229155647_Add BranchNotifications table.cs" />
+    <Compile Remove="Migrations\20201229155647_Add BranchNotifications table.Designer.cs" />
+    <Compile Remove="Migrations\20201229161145_Add BranchNotifications table.cs" />
+    <Compile Remove="Migrations\20201229161145_Add BranchNotifications table.Designer.cs" />
+    <Compile Remove="Migrations\20201229161631_Add BranchNotifications table.cs" />
+    <Compile Remove="Migrations\20201229161631_Add BranchNotifications table.Designer.cs" />
+    <Compile Remove="Migrations\20210202173738_temp.cs" />
+    <Compile Remove="Migrations\20210202173738_temp.Designer.cs" />
+    <Compile Remove="Migrations\20210202175425_temp.cs" />
+    <Compile Remove="Migrations\20210202175425_temp.Designer.cs" />
+    <Compile Remove="Migrations\20210202175747_Migration fix.cs" />
+    <Compile Remove="Migrations\20210202175747_Migration fix.Designer.cs" />
+    <Compile Remove="Migrations\20210202180342_temp.cs" />
+    <Compile Remove="Migrations\20210202180342_temp.Designer.cs" />
+    <Compile Remove="Repositories\Menu\IItemsSidesRepository.cs" />
+    <Compile Remove="Repositories\Menu\ItemsSidesRepository.cs" />
+    <Compile Remove="Services\AppUserService.cs" />
+    <Compile Remove="Services\Menu\IItemsSidesService.cs" />
+    <Compile Remove="Services\Menu\ItemsSidesService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="-googleStorageCredentials.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="app.yaml" />
+    <None Remove="openapi.yaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Google.Cloud.Diagnostics.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="3.2.0" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.6.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="microsoft.extensions.diagnostics.healthchecks" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="3.1.7" />
+    
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+    <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.5.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.6.0" />
+    <PackageReference Include="Twilio" Version="5.52.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyFoodApp.Resources\MyFoodApp.Resources.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="googleLoggingCredentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="googleStorageCredentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
